@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statistics &amp; Biostatistics — Foundations: Closing the Gap</title>
+<meta name="description" content="A plain-language, three-level statistics and biostatistics study guide for college students and underprepared high school students. Includes worked examples, flashcards, and quizzes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== SKIP LINK ===== */
+.skip-link{position:absolute;top:-100px;left:0;background:#2a3a40;color:#fff;padding:.75rem 1.5rem;font-size:1rem;font-weight:700;z-index:9999;border-radius:0 0 8px 0;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:0}
+
+/* ===== FOCUS ===== */
+:focus-visible{outline:3px solid #d4b84a;outline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid #d4b84a;outline-offset:3px}
+
+/* ===== ROOT ===== */
+:root{
+  --bg:#f7f6f3;--bg-card:#fff;--text:#1a1a1a;--text-muted:#555;
+  --accent:#3a5a65;--accent-dark:#253d47;--accent-light:#e6eef1;
+  --accent-warm:#6a7d5a;--border:#ccc8c0;--border-light:#e0dbd3;
+  --highlight:#fdf3d4;--highlight-border:#c8a200;
+  --mnemonic-bg:#edf3ee;--mnemonic-border:#4a8a58;
+  --formula-bg:#e6eef1;--formula-border:#3a5a65;
+  --green:#2a7048;--green-light:#d8f0e4;
+  --amber:#8a6400;--amber-light:#fef4d0;
+  --coral:#b03020;--coral-light:#fce8e5;
+  --level1-bg:#e8f4e8;--level1-border:#3a7a3a;--level1-color:#1e4d1e;
+  --level2-bg:#e8eef8;--level2-border:#3a5aaa;--level2-color:#1e2e6e;
+  --level3-bg:#f3e8f8;--level3-border:#7a3aaa;--level3-color:#4a1a6e;
+  --shadow:0 1px 3px rgba(0,0,0,.09),0 4px 12px rgba(0,0,0,.06);
+  --shadow-hover:0 2px 8px rgba(0,0,0,.11),0 8px 24px rgba(0,0,0,.08)
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:17px;-webkit-font-smoothing:antialiased}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(135deg,#1e2e35 0%,#3a5a65 45%,#4a7282 100%);color:#fff;padding:4rem 2rem 3.5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero h1{font-family:'Crimson Pro',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:-.02em;position:relative}
+.hero .subtitle{font-size:1.15rem;opacity:.9;margin-top:.5rem;font-weight:300;position:relative}
+.hero .badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:.3rem 1.1rem;font-family:'JetBrains Mono',monospace;font-size:.8rem;margin-top:1rem;position:relative;letter-spacing:.05em}
+.hero .series-label{font-size:.9rem;opacity:.75;margin-top:.4rem;font-style:italic;position:relative}
+
+/* ===== LEVEL KEY ===== */
+.level-key{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.25rem 2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.level-key h2{font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:600;margin-bottom:.75rem;color:var(--accent-dark)}
+.level-key-grid{display:flex;flex-wrap:wrap;gap:.75rem}
+.lk-item{display:flex;align-items:flex-start;gap:.6rem;flex:1;min-width:210px}
+.lk-badge{display:inline-block;font-size:.7rem;font-family:'JetBrains Mono',monospace;font-weight:700;padding:.3rem .7rem;border-radius:6px;white-space:nowrap;letter-spacing:.04em}
+.lk-badge.l1{background:var(--level1-bg);color:var(--level1-color);border:1px solid var(--level1-border)}
+.lk-badge.l2{background:var(--level2-bg);color:var(--level2-color);border:1px solid var(--level2-border)}
+.lk-badge.l3{background:var(--level3-bg);color:var(--level3-color);border:1px solid var(--level3-border)}
+.lk-desc{font-size:.88rem;color:var(--text-muted);line-height:1.5}
+
+/* ===== LAYOUT ===== */
+.container{max-width:920px;margin:0 auto;padding:2rem 1.25rem 4rem}
+
+/* ===== TOC ===== */
+.toc{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.5rem 2rem;margin-bottom:2.5rem;box-shadow:var(--shadow)}
+.toc h2{font-family:'Crimson Pro',serif;font-size:1.2rem;font-weight:600;margin-bottom:.75rem;color:var(--accent-dark)}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.3rem .75rem}
+.toc a{color:var(--accent-dark);text-decoration:underline;text-underline-offset:3px;font-size:.9rem;padding:.25rem 0;display:block;transition:color .2s}
+.toc a:hover{color:var(--accent)}
+.toc a .toc-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--text-muted);margin-right:.4rem}
+
+/* ===== SECTION CARDS ===== */
+.section-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:2rem;margin-bottom:1.75rem;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section-card:hover{box-shadow:var(--shadow-hover)}
+.section-card h2{font-family:'Crimson Pro',serif;font-size:1.55rem;font-weight:700;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--accent-light)}
+.section-card h2 .sec-num{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);margin-right:.5rem;background:var(--accent-light);padding:.15rem .5rem;border-radius:4px}
+.section-card h3{font-family:'Crimson Pro',serif;font-size:1.2rem;font-weight:700;margin:1.5rem 0 .5rem;color:var(--accent-dark)}
+.section-card p{margin-bottom:.8rem}
+
+/* ===== LEVEL BLOCKS ===== */
+.level-block{border-radius:8px;margin:1.25rem 0;overflow:hidden}
+.level-header{display:flex;align-items:center;gap:.65rem;padding:.75rem 1.1rem;font-weight:700;font-size:.85rem;cursor:pointer;user-select:none;border:none;width:100%;text-align:left;font-family:'Source Sans 3',sans-serif;transition:filter .15s}
+.level-header:hover{filter:brightness(.96)}
+.level-header:focus-visible{outline:3px solid #d4b84a;outline-offset:2px}
+.level-indicator{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;padding:.25rem .65rem;border-radius:5px;letter-spacing:.04em;flex-shrink:0}
+.level-title{flex:1}
+.level-chevron{font-size:.75rem;transition:transform .3s;margin-left:auto;flex-shrink:0}
+.level-chevron.open{transform:rotate(180deg)}
+.level-body{padding:1.1rem 1.25rem 1.25rem;border-top:1px solid rgba(0,0,0,.08)}
+.level-body p{margin-bottom:.7rem}
+.level-body p:last-child{margin-bottom:0}
+.level-body.collapsed{display:none}
+
+/* Level 1 — 8th Grade */
+.level-block.l1{border:2px solid var(--level1-border)}
+.level-header.l1{background:var(--level1-bg);color:var(--level1-color)}
+.level-indicator.l1{background:var(--level1-border);color:#fff}
+.level-body.l1{background:#f5faf5}
+
+/* Level 2 — High School */
+.level-block.l2{border:2px solid var(--level2-border)}
+.level-header.l2{background:var(--level2-bg);color:var(--level2-color)}
+.level-indicator.l2{background:var(--level2-border);color:#fff}
+.level-body.l2{background:#f3f6fc}
+
+/* Level 3 — College */
+.level-block.l3{border:2px solid var(--level3-border)}
+.level-header.l3{background:var(--level3-bg);color:var(--level3-color)}
+.level-indicator.l3{background:var(--level3-border);color:#fff}
+.level-body.l3{background:#faf5fc}
+
+/* ===== INNER BOX TYPES ===== */
+.formula-box{background:var(--formula-bg);border-left:4px solid var(--formula-border);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1rem 0}
+.formula-box .formula-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem;font-weight:700}
+.formula-box code{font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--accent-dark);display:block;margin:.25rem 0}
+
+.key-point{background:var(--highlight);border-left:4px solid var(--highlight-border);border-radius:0 8px 8px 0;padding:.85rem 1.25rem;margin:1rem 0}
+.key-point .key-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;font-weight:700}
+
+.mnemonic{background:var(--mnemonic-bg);border-left:4px solid var(--mnemonic-border);border-radius:0 8px 8px 0;padding:.85rem 1.25rem;margin:1rem 0}
+.mnemonic .mnemonic-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent-warm);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;font-weight:700}
+
+.think-box{background:#f3edf7;border-left:4px solid #8a6aaa;border-radius:0 8px 8px 0;padding:.85rem 1.25rem;margin:1rem 0}
+.think-box .think-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#7a5a9a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;font-weight:700}
+
+.warning-box{background:var(--coral-light);border-left:4px solid var(--coral);border-radius:0 8px 8px 0;padding:.85rem 1.25rem;margin:1rem 0}
+.warning-box .warning-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--coral);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;font-weight:700}
+
+.example-box{background:#f9f7f2;border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;margin:1rem 0}
+.example-box .example-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem;font-weight:700}
+.example-box p{margin-bottom:.5rem}
+.example-box p:last-child{margin-bottom:0}
+
+/* ===== TABLES ===== */
+table.ref{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
+table.ref caption{text-align:left;font-size:.82rem;font-style:italic;color:var(--text-muted);margin-bottom:.3rem;font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+table.ref th{background:var(--accent-light);color:var(--accent-dark);font-weight:700;text-align:left;padding:.55rem .75rem;border:1px solid var(--border);font-size:.82rem;text-transform:uppercase;letter-spacing:.03em}
+table.ref td{padding:.5rem .75rem;border:1px solid var(--border-light);vertical-align:top}
+table.ref tr:nth-child(even){background:rgba(58,90,101,.03)}
+table.ref code{font-family:'JetBrains Mono',monospace;font-size:.82rem;background:var(--formula-bg);padding:.1rem .35rem;border-radius:3px}
+
+/* ===== PRACTICE AREA ===== */
+.practice{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:2rem;box-shadow:var(--shadow)}
+.practice-header{background:var(--accent-dark);color:#fff;padding:1.5rem 2rem}
+.practice-header h2{font-family:'Crimson Pro',serif;font-size:1.4rem;font-weight:600}
+.practice-header p{font-size:.9rem;opacity:.85;margin-top:.25rem}
+.tab-bar{display:flex;background:var(--accent-light);border-bottom:1px solid var(--border)}
+.tab-btn{flex:1;padding:.75rem .5rem;font-family:'Source Sans 3',sans-serif;font-size:.9rem;font-weight:600;border:none;background:transparent;color:var(--text-muted);cursor:pointer;transition:all .2s}
+.tab-btn:hover{background:rgba(58,90,101,.08)}
+.tab-btn.active{background:var(--bg-card);color:var(--accent-dark);border-bottom:3px solid var(--accent)}
+.tab-btn:focus-visible{outline:3px solid #d4b84a;outline-offset:-2px}
+.tab-content{display:none;padding:1.5rem 2rem}
+.tab-content.active{display:block}
+
+/* MC */
+.mc-card{background:var(--bg);border:1px solid var(--border-light);border-radius:8px;padding:1.25rem;margin-bottom:1.25rem}
+.mc-card .mc-q{font-weight:700;margin-bottom:.75rem;font-size:.98rem}
+.mc-card .mc-q .mc-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);margin-right:.3rem}
+.mc-opt{display:block;width:100%;text-align:left;padding:.65rem 1rem;margin:.3rem 0;border:2px solid var(--border-light);border-radius:6px;background:var(--bg-card);font-size:.92rem;cursor:pointer;transition:all .15s;font-family:inherit}
+.mc-opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light)}
+.mc-opt.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:700}
+.mc-opt.wrong{border-color:var(--coral);background:var(--coral-light);color:var(--coral)}
+.mc-opt:disabled{cursor:default;opacity:.9}
+.mc-explain{margin-top:.5rem;padding:.75rem;background:var(--accent-light);border-radius:6px;font-size:.88rem;display:none;border-left:3px solid var(--accent)}
+.mc-score{text-align:center;padding:1rem;font-size:1.1rem;font-weight:700;color:var(--accent-dark)}
+
+/* Flashcards */
+.fc-filters{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.fc-filter{padding:.35rem .75rem;border:2px solid var(--border);border-radius:20px;background:transparent;font-size:.82rem;cursor:pointer;transition:all .15s;font-family:inherit;font-weight:600}
+.fc-filter:hover{border-color:var(--accent)}
+.fc-filter.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.fc-counter{font-size:.88rem;color:var(--text-muted);margin-bottom:.75rem}
+.fc-card{width:100%;min-height:220px;perspective:1000px;cursor:pointer;margin-bottom:1rem}
+.fc-inner{position:relative;width:100%;min-height:220px;transition:transform .55s;transform-style:preserve-3d}
+.fc-card.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;padding:1.5rem;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:.5rem}
+.fc-front{background:linear-gradient(135deg,var(--accent-light),#ebf2f5);border:2px solid var(--border);font-weight:700;font-size:1.05rem}
+.fc-back{background:var(--accent-dark);color:#fff;transform:rotateY(180deg);font-size:.95rem;line-height:1.75}
+.fc-hint{font-size:.78rem;color:var(--text-muted);font-style:italic;margin-top:.25rem}
+.fc-nav{display:flex;justify-content:center;gap:.75rem;margin-top:.5rem;flex-wrap:wrap}
+.fc-nav button{padding:.5rem 1.5rem;border:2px solid var(--border);border-radius:6px;background:var(--bg-card);cursor:pointer;font-family:inherit;font-size:.9rem;font-weight:600;transition:all .15s}
+.fc-nav button:hover{border-color:var(--accent);background:var(--accent-light)}
+.fc-nav button:focus-visible{outline:3px solid #d4b84a;outline-offset:2px}
+
+/* Short Answer */
+.sa-card{background:var(--bg);border:1px solid var(--border-light);border-radius:8px;padding:1.25rem;margin-bottom:1.5rem}
+.sa-card .sa-q{font-weight:700;margin-bottom:.75rem;font-size:.98rem}
+.sa-card textarea{width:100%;min-height:110px;padding:.75rem;border:2px solid var(--border);border-radius:6px;font-family:inherit;font-size:.92rem;resize:vertical;background:var(--bg-card);color:var(--text)}
+.sa-card textarea:focus{outline:3px solid #d4b84a;outline-offset:0;border-color:transparent}
+.sa-submit{margin-top:.5rem;padding:.55rem 1.4rem;background:var(--accent);color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-size:.9rem;font-weight:700;transition:background .15s}
+.sa-submit:hover{background:var(--accent-dark)}
+.sa-submit:focus-visible{outline:3px solid #d4b84a;outline-offset:3px}
+.sa-result{margin-top:.75rem;display:none}
+.sa-bar{height:10px;background:var(--border-light);border-radius:5px;margin:.5rem 0;overflow:hidden}
+.sa-bar-fill{height:100%;border-radius:5px;transition:width .6s}
+.sa-concepts{display:flex;flex-wrap:wrap;gap:.35rem;margin:.5rem 0}
+.sa-tag{font-size:.75rem;padding:.25rem .55rem;border-radius:4px;font-family:'JetBrains Mono',monospace;font-weight:600}
+.sa-tag.hit{background:var(--green-light);color:var(--green)}
+.sa-tag.miss{background:var(--border-light);color:var(--text-muted)}
+.sa-model{margin-top:.5rem;font-size:.88rem}
+.sa-model summary{cursor:pointer;color:var(--accent);font-weight:700;padding:.25rem 0}
+.sa-model .model-text{margin-top:.5rem;padding:.85rem;background:var(--accent-light);border-radius:6px;line-height:1.75;border-left:3px solid var(--accent)}
+
+/* ===== DEFINITION TERM ===== */
+dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px dotted var(--accent)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:700px){
+  .hero{padding:3rem 1.25rem 2.5rem}
+  .container{padding:1.25rem 1rem 3rem}
+  .section-card{padding:1.25rem}
+  .toc-grid{grid-template-columns:1fr}
+  .tab-content{padding:1rem}
+  .practice-header{padding:1rem 1.25rem}
+  .level-key-grid{flex-direction:column}
+  .tab-bar{flex-direction:column}
+  .tab-btn{text-align:left;padding:.7rem 1rem}
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media(forced-colors:active){
+  .level-block{border:2px solid ButtonText}
+  .fc-front,.fc-back{border:2px solid ButtonText}
+  .mc-opt.correct{border:3px solid ButtonText}
+  .mc-opt.wrong{border:3px solid ButtonText}
+}
+
+/* ===== PRINT ===== */
+@media print{
+  .practice{display:none}
+  .level-body.collapsed{display:block !important}
+  .hero{background:#2a3a40 !important;-webkit-print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<!-- SKIP NAVIGATION -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- LIVE REGION for quiz announcements -->
+<div id="live-region" aria-live="polite" aria-atomic="true" class="sr-only" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"></div>
+
+<header role="banner">
+  <div class="hero">
+    <h1>Statistics &amp; Biostatistics</h1>
+    <p class="subtitle">Plain-language explanations &mdash; three reading levels &mdash; worked examples throughout</p>
+    <p class="series-label">Foundations: Closing the Gap Series</p>
+    <div class="badge" role="img" aria-label="Essential Reference">Essential Reference</div>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+<div class="container">
+
+<!-- LEVEL KEY -->
+<section aria-labelledby="level-key-heading" class="level-key">
+  <h2 id="level-key-heading">How to Use the Three Levels</h2>
+  <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:.75rem;">Every topic is broken into three reading levels. Start at Level 1 and go deeper as you get comfortable. Click any level bar to expand or collapse it.</p>
+  <div class="level-key-grid">
+    <div class="lk-item">
+      <span class="lk-badge l1" aria-hidden="true">LEVEL 1</span>
+      <span class="lk-desc"><strong>8th Grade (Start Here)</strong> &mdash; The plain-English version. No assumed background. Big ideas only.</span>
+    </div>
+    <div class="lk-item">
+      <span class="lk-badge l2" aria-hidden="true">LEVEL 2</span>
+      <span class="lk-desc"><strong>High School Junior/Senior</strong> &mdash; Adds vocabulary, formulas, and the "why." Good for A&amp;P or pre-calc students.</span>
+    </div>
+    <div class="lk-item">
+      <span class="lk-badge l3" aria-hidden="true">LEVEL 3</span>
+      <span class="lk-desc"><strong>College Sophomore</strong> &mdash; Full technical depth. Assumptions, edge cases, MCAT-ready detail.</span>
+    </div>
+  </div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<nav aria-labelledby="toc-heading" class="toc">
+  <h2 id="toc-heading">Table of Contents</h2>
+  <div class="toc-grid">
+    <a href="#s1"><span class="toc-num" aria-hidden="true">01</span>Descriptive Statistics</a>
+    <a href="#s2"><span class="toc-num" aria-hidden="true">02</span>Probability Foundations</a>
+    <a href="#s3"><span class="toc-num" aria-hidden="true">03</span>Probability Distributions</a>
+    <a href="#s4"><span class="toc-num" aria-hidden="true">04</span>Sampling &amp; Estimation</a>
+    <a href="#s5"><span class="toc-num" aria-hidden="true">05</span>Hypothesis Testing</a>
+    <a href="#s6"><span class="toc-num" aria-hidden="true">06</span>Common Statistical Tests</a>
+    <a href="#s7"><span class="toc-num" aria-hidden="true">07</span>Correlation &amp; Regression</a>
+    <a href="#s8"><span class="toc-num" aria-hidden="true">08</span>ANOVA</a>
+    <a href="#s9"><span class="toc-num" aria-hidden="true">09</span>Non-Parametric Tests</a>
+    <a href="#s10"><span class="toc-num" aria-hidden="true">10</span>Study Design &amp; Biostatistics</a>
+    <a href="#s11"><span class="toc-num" aria-hidden="true">11</span>Diagnostic Testing &amp; Epidemiology</a>
+    <a href="#s12"><span class="toc-num" aria-hidden="true">12</span>Essential Formulas</a>
+    <a href="#practice">Practice Questions &amp; Flashcards</a>
+  </div>
+</nav>
+
+<!-- ==================== SECTION 01 ==================== -->
+<article class="section-card" id="s1" aria-labelledby="s1-heading">
+  <h2 id="s1-heading"><span class="sec-num" aria-hidden="true">01</span>Descriptive Statistics</h2>
+
+  <!-- LEVEL 1 -->
+  <div class="level-block l1">
+    <button class="level-header l1" aria-expanded="true" aria-controls="s1-l1-body" id="s1-l1-btn">
+      <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
+      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-chevron open" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l1" id="s1-l1-body" role="region" aria-labelledby="s1-l1-btn">
+      <p>Descriptive statistics are just ways to <em>describe a pile of numbers</em> so you can understand them quickly. Instead of reading 100 test scores one by one, you want one or two numbers that tell the story.</p>
+      <p>There are two main questions: <strong>Where is the middle?</strong> and <strong>How spread out are the numbers?</strong></p>
+      <div class="think-box">
+        <div class="think-label" aria-hidden="true">Think of It This Way</div>
+        <p>Imagine 5 friends compare their heights: 5'2", 5'4", 5'5", 5'6", and 6'8". The <dfn>mean</dfn> (average) is pulled way up by the very tall friend. The <dfn>median</dfn> (middle value) = 5'5" and gives a better sense of "typical."</p>
+      </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Mean vs. Median</div>
+        <p><strong>Five students' scores:</strong> 60, 62, 65, 68, 95</p>
+        <p><strong>Mean</strong> = (60+62+65+68+95) ÷ 5 = 350 ÷ 5 = <strong>70</strong></p>
+        <p><strong>Median</strong> = middle value when sorted = <strong>65</strong></p>
+        <p><strong>So what?</strong> The mean of 70 makes the class sound pretty average, but four out of five students actually scored below 70. The one high score (95) dragged the mean up. The median of 65 better represents how most students did.</p>
+        <p><strong>Rule of thumb:</strong> Use the median when you have extreme outliers (like one very high or very low value).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEVEL 2 -->
+  <div class="level-block l2">
+    <button class="level-header l2" aria-expanded="false" aria-controls="s1-l2-body" id="s1-l2-btn">
+      <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
+      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l2 collapsed" id="s1-l2-body" role="region" aria-labelledby="s1-l2-btn">
+      <h3>Measures of Central Tendency</h3>
+      <p>The <dfn>mean</dfn> is the arithmetic average. The <dfn>median</dfn> is the exact middle value when data is sorted. The <dfn>mode</dfn> is the value that appears most often — it is the only measure you can use with categorical data (you cannot average "red" and "blue," but you can say "red is the most common").</p>
+      <h3>Measures of Spread</h3>
+      <p>The <dfn>range</dfn> = largest minus smallest value. Simple, but one extreme value wrecks it. The <dfn>standard deviation (SD)</dfn> measures how far scores typically fall from the mean. A small SD means scores are bunched together; a large SD means they are all over the place. The <dfn>variance</dfn> is just SD squared (SD²).</p>
+      <div class="formula-box">
+        <div class="formula-label" aria-hidden="true">Standard Deviation (Sample)</div>
+        <code>s = √[ Σ(xᵢ − x̄)² / (n − 1) ]</code>
+        <p style="font-size:.85rem;margin-top:.35rem;color:var(--text-muted);">Translation: subtract the mean from each score, square the result, add them all up, divide by (n − 1), then take the square root.</p>
+      </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Calculating Standard Deviation</div>
+        <p><strong>Scores:</strong> 70, 75, 80, 85, 90 &nbsp;|&nbsp; Mean = 80</p>
+        <p>Step 1 — Subtract mean: −10, −5, 0, +5, +10</p>
+        <p>Step 2 — Square each: 100, 25, 0, 25, 100</p>
+        <p>Step 3 — Add squared values: 100+25+0+25+100 = <strong>250</strong></p>
+        <p>Step 4 — Divide by (n−1) = 4: 250 ÷ 4 = 62.5</p>
+        <p>Step 5 — Square root: √62.5 = <strong>7.91</strong></p>
+        <p><strong>Meaning:</strong> On average, scores fall about ±7.9 points from the mean of 80.</p>
+      </div>
+      <div class="key-point">
+        <div class="key-label" aria-hidden="true">Key Point</div>
+        <p>When data is skewed (like incomes with a few millionaires), the mean is pulled toward the outlier. Use the <strong>median</strong> for skewed data. Use the <strong>mean</strong> for symmetric data. This is why the news always reports median household income, not mean.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEVEL 3 -->
+  <div class="level-block l3">
+    <button class="level-header l3" aria-expanded="false" aria-controls="s1-l3-body" id="s1-l3-btn">
+      <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
+      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l3 collapsed" id="s1-l3-body" role="region" aria-labelledby="s1-l3-btn">
+      <p>Why divide by <em>n − 1</em> (not n) when computing sample standard deviation? Because you are using the sample mean as an estimate of the population mean, which introduces a slight bias. Dividing by n − 1 corrects for this "Bessel's correction" and gives an unbiased estimator of the population variance. When computing a <em>population</em> standard deviation (when you have every data point, not just a sample), divide by n.</p>
+      <p>The <dfn>interquartile range (IQR)</dfn> = Q3 − Q1, spanning the middle 50% of data. It is resistant to outliers and is the spread measure paired with the median. A <dfn>z-score</dfn> transforms any value into units of standard deviation: z = (x − μ) / σ. Values beyond ±3 are considered extreme outliers in many contexts.</p>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Identifying the Right Summary Statistics</div>
+        <p><strong>Scenario:</strong> A hospital records length of stay (days) for 200 patients: most stay 2–5 days, but 10 patients required 45–90 day ICU stays.</p>
+        <p><strong>Median stay:</strong> 3 days &nbsp;&nbsp; <strong>Mean stay:</strong> 7.4 days &nbsp;&nbsp; <strong>IQR:</strong> 2–5 days</p>
+        <p><strong>What to report and why:</strong> The 10 ICU patients are legitimate but extreme values. They inflate the mean to 7.4, which misrepresents 95% of patients. The correct report is "median stay = 3 days (IQR: 2–5)" because it reflects the typical patient. The ICU outliers should be described separately. Journals in clinical medicine strongly prefer median ± IQR for skewed data.</p>
+      </div>
+      <div class="warning-box">
+        <div class="warning-label" aria-hidden="true">MCAT/Exam Watch</div>
+        <p>In a perfectly symmetric, unimodal distribution: mean = median = mode. Right-skewed data (long tail to the right, like incomes): mean > median > mode. Left-skewed data (long tail to the left): mean &lt; median &lt; mode. You will be asked to identify the direction of skew from a histogram and predict which measure is largest.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ==================== SECTION 02 ==================== -->
+<article class="section-card" id="s2" aria-labelledby="s2-heading">
+  <h2 id="s2-heading"><span class="sec-num" aria-hidden="true">02</span>Probability Foundations</h2>
+
+  <div class="level-block l1">
+    <button class="level-header l1" aria-expanded="true" aria-controls="s2-l1-body" id="s2-l1-btn">
+      <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
+      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-chevron open" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l1" id="s2-l1-body" role="region" aria-labelledby="s2-l1-btn">
+      <p><dfn>Probability</dfn> is a number between 0 and 1 that tells you how likely something is. 0 = impossible. 1 = certain. 0.5 = 50/50 (like flipping a fair coin).</p>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Basic Probability</div>
+        <p>A bag has 3 red marbles and 7 blue marbles (10 total).</p>
+        <p>P(red) = 3/10 = <strong>0.30</strong> = 30%</p>
+        <p>P(blue) = 7/10 = <strong>0.70</strong> = 70%</p>
+        <p>P(red) + P(blue) = 1.0 ✓ (all possibilities must add to 1)</p>
+      </div>
+      <p>Two events are <dfn>independent</dfn> if one does not affect the other (like flipping a coin twice — the first flip does not change the second). They are <dfn>mutually exclusive</dfn> if they cannot happen at the same time (you cannot roll a 2 and a 5 on the same die roll).</p>
+    </div>
+  </div>
+
+  <div class="level-block l2">
+    <button class="level-header l2" aria-expanded="false" aria-controls="s2-l2-body" id="s2-l2-btn">
+      <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
+      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l2 collapsed" id="s2-l2-body" role="region" aria-labelledby="s2-l2-btn">
+      <p>The <dfn>addition rule</dfn>: P(A or B) = P(A) + P(B) − P(A and B). You subtract P(A and B) to avoid double counting. If A and B are mutually exclusive, P(A and B) = 0, so P(A or B) = P(A) + P(B).</p>
+      <p>The <dfn>multiplication rule</dfn>: P(A and B) = P(A) × P(B|A). If independent: P(A and B) = P(A) × P(B).</p>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Multiplication Rule</div>
+        <p><strong>Question:</strong> In a class of 30 students, 12 are pre-med, 8 have a GPA above 3.8. Are these independent? If you pick a student randomly, what is P(pre-med AND GPA above 3.8) if independent?</p>
+        <p>P(pre-med) = 12/30 = 0.40 &nbsp;&nbsp; P(GPA &gt; 3.8) = 8/30 = 0.267</p>
+        <p>If independent: P(both) = 0.40 × 0.267 = <strong>0.107</strong> (about 10.7%)</p>
+        <p><strong>Reality check:</strong> Pre-med students often have higher GPAs, so these events are probably NOT independent in real life.</p>
+      </div>
+      <h3>Conditional Probability</h3>
+      <p><dfn>Conditional probability</dfn> P(A|B) = "probability of A given that B already happened." Formula: P(A|B) = P(A and B) / P(B).</p>
+    </div>
+  </div>
+
+  <div class="level-block l3">
+    <button class="level-header l3" aria-expanded="false" aria-controls="s2-l3-body" id="s2-l3-btn">
+      <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
+      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l3 collapsed" id="s2-l3-body" role="region" aria-labelledby="s2-l3-btn">
+      <h3>Bayes' Theorem</h3>
+      <p><dfn>Bayes' Theorem</dfn> lets you update a probability when you get new evidence. It is the foundation of medical diagnostic reasoning.</p>
+      <div class="formula-box">
+        <div class="formula-label" aria-hidden="true">Bayes' Theorem</div>
+        <code>P(Disease | Positive Test) = [P(Positive | Disease) × P(Disease)] / P(Positive)</code>
+      </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Why Rare Diseases Fool Us</div>
+        <p><strong>Setup:</strong> A disease affects 1 in 1,000 people (prevalence = 0.1%). A test is 99% sensitive (detects 99% of sick people) and 99% specific (correctly excludes 99% of healthy people).</p>
+        <p><strong>Intuition says:</strong> 99% accurate — so a positive test must mean I'm sick, right?</p>
+        <p><strong>In 100,000 people:</strong> 100 have the disease. Test finds 99 of them (true positives). Of the 99,900 healthy people, 1% get false positives = <strong>999 false positives</strong>.</p>
+        <p><strong>So if you test positive:</strong> P(sick | positive) = 99 / (99 + 999) = 99/1,098 = <strong>9%</strong></p>
+        <p><strong>Lesson:</strong> A positive test on a rare disease still mostly means you do NOT have it. This is the key reason positive screening results are followed by confirmatory tests.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ==================== SECTION 03 ==================== -->
+<article class="section-card" id="s3" aria-labelledby="s3-heading">
+  <h2 id="s3-heading"><span class="sec-num" aria-hidden="true">03</span>Probability Distributions</h2>
+
+  <div class="level-block l1">
+    <button class="level-header l1" aria-expanded="true" aria-controls="s3-l1-body" id="s3-l1-btn">
+      <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
+      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-chevron open" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l1" id="s3-l1-body" role="region" aria-labelledby="s3-l1-btn">
+      <p>A <dfn>probability distribution</dfn> is a picture (or table) showing how likely each possible outcome is. The most famous one is the <dfn>normal distribution</dfn> — the bell curve you have probably seen.</p>
+      <div class="think-box">
+        <div class="think-label" aria-hidden="true">Think of It This Way</div>
+        <p>If you measured the height of every adult in the U.S. and made a histogram, it would look like a bell — most people are near the average, fewer people are very short or very tall. That bell shape is the normal distribution.</p>
+      </div>
+      <div class="mnemonic">
+        <div class="mnemonic-label" aria-hidden="true">The 68–95–99.7 Rule</div>
+        <p>In any normal distribution: <strong>68%</strong> of data falls within 1 standard deviation of the mean. <strong>95%</strong> falls within 2 SD. <strong>99.7%</strong> falls within 3 SD. If a value is more than 2 SD away, it is unusual. More than 3 SD — it is rare.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l2">
+    <button class="level-header l2" aria-expanded="false" aria-controls="s3-l2-body" id="s3-l2-btn">
+      <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
+      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l2 collapsed" id="s3-l2-body" role="region" aria-labelledby="s3-l2-btn">
+      <h3>Z-Scores</h3>
+      <p>A <dfn>z-score</dfn> standardizes any value. It tells you how many standard deviations above or below the mean a value sits.</p>
+      <div class="formula-box">
+        <div class="formula-label" aria-hidden="true">Z-Score Formula</div>
+        <code>z = (x − μ) / σ</code>
+        <p style="font-size:.85rem;margin-top:.3rem;color:var(--text-muted);">x = your value, μ = mean, σ = standard deviation</p>
+      </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Comparing Two Different Scales</div>
+        <p>A student scores <strong>82 on a biology exam</strong> (class mean = 75, SD = 5) and <strong>720 on the SAT Math</strong> (mean = 530, SD = 100).</p>
+        <p>Biology z-score: (82 − 75) / 5 = <strong>+1.40</strong></p>
+        <p>SAT z-score: (720 − 530) / 100 = <strong>+1.90</strong></p>
+        <p><strong>Conclusion:</strong> The student performed relatively better on the SAT (+1.90 SD) than on the biology exam (+1.40 SD). Without z-scores, you cannot compare a 720 to an 82 — they are on completely different scales.</p>
+      </div>
+      <h3>Other Key Distributions</h3>
+      <table class="ref">
+        <caption>Common probability distributions and when to use them</caption>
+        <thead>
+          <tr><th scope="col">Distribution</th><th scope="col">Use It When</th><th scope="col">Key Feature</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Binomial</td><td>Counting yes/no outcomes in n fixed trials</td><td>Need fixed n, same p each trial, independence</td></tr>
+          <tr><td>Poisson</td><td>Counting rare events in a fixed time/space</td><td>λ = average rate; events are independent</td></tr>
+          <tr><td>t-distribution</td><td>Small samples (n &lt; 30) or unknown σ</td><td>Fatter tails than normal; becomes normal as n grows</td></tr>
+          <tr><td>Chi-square (χ²)</td><td>Testing categorical data</td><td>Always positive; shape changes with degrees of freedom</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="level-block l3">
+    <button class="level-header l3" aria-expanded="false" aria-controls="s3-l3-body" id="s3-l3-btn">
+      <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
+      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l3 collapsed" id="s3-l3-body" role="region" aria-labelledby="s3-l3-btn">
+      <p>The normal distribution is fully described by two parameters: mean (μ) and standard deviation (σ). The <dfn>standard normal distribution</dfn> has μ = 0 and σ = 1. Converting to z-scores lets you use standard normal tables to find exact probabilities.</p>
+      <p>The <dfn>t-distribution</dfn> has heavier tails than the normal — it assigns more probability to extreme values. This is appropriate when estimating population parameters from small samples, because we have more uncertainty about the true population SD. As sample size grows, the t-distribution converges on the standard normal.</p>
+      <div class="warning-box">
+        <div class="warning-label" aria-hidden="true">Common Student Mistake</div>
+        <p>Using z-tests when t-tests are required. Use a z-test only when the population standard deviation (σ) is <em>known</em> — which almost never happens in real research. If you estimated SD from your sample, you must use a t-test. With n &gt; 30, the difference is small, but the t-test is always the safer, more technically correct choice.</p>
+      </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Binomial Probability</div>
+        <p><strong>Question:</strong> A drug has a 30% success rate. You give it to 5 patients. What is the probability that exactly 2 of them respond?</p>
+        <p>Use the binomial formula: P(X = k) = C(n,k) × p^k × (1−p)^(n−k)</p>
+        <p>P(X = 2) = C(5,2) × 0.30² × 0.70³ = 10 × 0.09 × 0.343 = <strong>0.309</strong></p>
+        <p>About a 31% chance that exactly 2 out of 5 patients respond.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ==================== SECTION 04 ==================== -->
+<article class="section-card" id="s4" aria-labelledby="s4-heading">
+  <h2 id="s4-heading"><span class="sec-num" aria-hidden="true">04</span>Sampling &amp; Estimation</h2>
+
+  <div class="level-block l1">
+    <button class="level-header l1" aria-expanded="true" aria-controls="s4-l1-body" id="s4-l1-btn">
+      <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
+      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-chevron open" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l1" id="s4-l1-body" role="region" aria-labelledby="s4-l1-btn">
+      <p>You cannot test every person in the world, so instead you test a <dfn>sample</dfn> — a smaller group — and use what you learn to make an educated guess about everyone (the <dfn>population</dfn>).</p>
+      <div class="think-box">
+        <div class="think-label" aria-hidden="true">Think of It This Way</div>
+        <p>A chef tastes one spoonful of soup to know if the whole pot needs salt. The spoonful is the sample. The whole pot is the population. This only works if the spoonful was well-mixed (random).</p>
+      </div>
+      <p>The most important thing: your sample must be <strong>random</strong>. A bad sample (like only asking your friends) gives answers that do not represent everyone.</p>
+    </div>
+  </div>
+
+  <div class="level-block l2">
+    <button class="level-header l2" aria-expanded="false" aria-controls="s4-l2-body" id="s4-l2-btn">
+      <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
+      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l2 collapsed" id="s4-l2-body" role="region" aria-labelledby="s4-l2-btn">
+      <h3>Sampling Methods</h3>
+      <table class="ref">
+        <caption>Comparison of common sampling strategies</caption>
+        <thead><tr><th scope="col">Method</th><th scope="col">How It Works</th><th scope="col">Watch Out For</th></tr></thead>
+        <tbody>
+          <tr><td>Simple random</td><td>Everyone has equal chance of being picked (like a lottery)</td><td>Possible to miss small subgroups by chance</td></tr>
+          <tr><td>Stratified</td><td>Divide into groups (strata), then randomly pick from each</td><td>Need to know important subgroup characteristics in advance</td></tr>
+          <tr><td>Cluster</td><td>Randomly pick whole groups (like schools), then include everyone in those groups</td><td>Groups must be similar to each other</td></tr>
+          <tr><td>Convenience</td><td>Use whoever is available (your friends, your class)</td><td>Highly biased — never use for research you want to generalize</td></tr>
+        </tbody>
+      </table>
+      <h3>Confidence Intervals — The Plain Version</h3>
+      <p>A <dfn>95% confidence interval</dfn> gives a range that, using this method, would capture the true population value 95% of the time if you repeated the study many times. It is NOT a 95% chance the true value is in this specific interval — the true value is fixed; the interval is what varies.</p>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Reading a Confidence Interval</div>
+        <p>A study measures resting heart rate in 36 students. Mean = 72 bpm, SD = 8.</p>
+        <p>SE = 8 / √36 = 8 / 6 = 1.33. Using t* ≈ 2.03:</p>
+        <p>95% CI = 72 ± 2.03 × 1.33 = 72 ± 2.7 = <strong>(69.3, 74.7) bpm</strong></p>
+        <p><strong>Correct interpretation:</strong> "We are 95% confident the true mean resting heart rate is between 69.3 and 74.7 bpm." We are NOT saying there is a 95% chance the true mean lies in this range (the true mean either is or is not in this interval — it is fixed).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l3">
+    <button class="level-header l3" aria-expanded="false" aria-controls="s4-l3-body" id="s4-l3-btn">
+      <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
+      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l3 collapsed" id="s4-l3-body" role="region" aria-labelledby="s4-l3-btn">
+      <h3>The Central Limit Theorem (CLT)</h3>
+      <p>The <dfn>Central Limit Theorem</dfn> states that the sampling distribution of the sample mean approaches a normal distribution as n increases, regardless of the population's original shape. For most populations, n ≥ 30 is sufficient. This is the theoretical backbone of virtually every hypothesis test.</p>
+      <div class="formula-box">
+        <div class="formula-label" aria-hidden="true">Standard Error of the Mean</div>
+        <code>SE = σ / √n &nbsp; (or s / √n when σ is unknown)</code>
+      </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — How Sample Size Affects Precision</div>
+        <p>Population SD of exam scores = 12 points. How does SE change?</p>
+        <p>n = 9: SE = 12/3 = <strong>4.0</strong> &nbsp;&nbsp; n = 36: SE = 12/6 = <strong>2.0</strong> &nbsp;&nbsp; n = 144: SE = 12/12 = <strong>1.0</strong></p>
+        <p><strong>Pattern:</strong> To cut SE in half, you must quadruple n. This is the diminishing returns law of sample size — going from 9 to 36 students halves your uncertainty, but going from 900 to 3,600 also only halves it again. This is why huge clinical trials are expensive and why researchers always balance precision against budget.</p>
+      </div>
+      <p>The <dfn>margin of error</dfn> in a confidence interval = critical value × SE. Wider CI = less precision (larger SE or higher confidence level). Narrower CI = more precision (larger n or lower confidence level). There is always a tradeoff between confidence level and width.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ==================== SECTION 05 ==================== -->
+<article class="section-card" id="s5" aria-labelledby="s5-heading">
+  <h2 id="s5-heading"><span class="sec-num" aria-hidden="true">05</span>Hypothesis Testing</h2>
+
+  <div class="level-block l1">
+    <button class="level-header l1" aria-expanded="true" aria-controls="s5-l1-body" id="s5-l1-btn">
+      <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
+      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-chevron open" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l1" id="s5-l1-body" role="region" aria-labelledby="s5-l1-btn">
+      <p>Hypothesis testing is a formal way to use data to answer yes/no questions. Does a new drug work? Is one teaching method better than another?</p>
+      <div class="think-box">
+        <div class="think-label" aria-hidden="true">The Courtroom Analogy</div>
+        <p>In a trial, you assume the defendant is <em>innocent until proven guilty</em>. You need <em>evidence</em> to convict. In statistics, the <dfn>null hypothesis (H₀)</dfn> is "innocent" — nothing unusual is happening. The <dfn>alternative hypothesis (Hₐ)</dfn> is the "guilty" claim you are trying to prove. You never declare the defendant "innocent" — only "not enough evidence to convict." Same in statistics: you never "accept" the null, you only "fail to reject" it.</p>
+      </div>
+      <p>The <dfn>p-value</dfn> is the probability of seeing data as extreme as yours if the null hypothesis were true. A small p-value (usually below 0.05) means the data would be very unusual if the null were true — so you reject the null.</p>
+    </div>
+  </div>
+
+  <div class="level-block l2">
+    <button class="level-header l2" aria-expanded="false" aria-controls="s5-l2-body" id="s5-l2-btn">
+      <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
+      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l2 collapsed" id="s5-l2-body" role="region" aria-labelledby="s5-l2-btn">
+      <h3>The Steps — Applied to a Real Scenario</h3>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Does a New Drug Lower Blood Pressure?</div>
+        <p><strong>Step 1 — State the hypotheses:</strong></p>
+        <p>H₀: The drug has no effect (mean change = 0 mmHg)</p>
+        <p>Hₐ: The drug lowers blood pressure (mean change &lt; 0 mmHg)</p>
+        <p><strong>Step 2 — Set alpha:</strong> α = 0.05 (accept a 5% chance of a false alarm)</p>
+        <p><strong>Step 3 — Collect data:</strong> 40 patients, mean change = −5.2 mmHg, SD = 8.1 mmHg</p>
+        <p><strong>Step 4 — Calculate test statistic:</strong> t = −5.2 / (8.1/√40) = −5.2 / 1.28 = <strong>−4.06</strong></p>
+        <p><strong>Step 5 — Find p-value:</strong> p &lt; 0.001</p>
+        <p><strong>Step 6 — Decide:</strong> p (0.001) &lt; α (0.05) → <strong>Reject H₀.</strong> Strong evidence the drug lowers blood pressure.</p>
+      </div>
+      <h3>Type I and Type II Errors</h3>
+      <table class="ref">
+        <caption>The two ways hypothesis testing can go wrong</caption>
+        <thead><tr><th scope="col">Error Type</th><th scope="col">What Happened</th><th scope="col">Real-World Analogy</th><th scope="col">Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Type I (false positive)</td><td>Rejected H₀ when it was actually true</td><td>Convicted an innocent person</td><td>α (usually 0.05)</td></tr>
+          <tr><td>Type II (false negative)</td><td>Failed to reject H₀ when it was actually false</td><td>Let a guilty person go free</td><td>β</td></tr>
+        </tbody>
+      </table>
+      <div class="mnemonic">
+        <div class="mnemonic-label" aria-hidden="true">Power = 1 − β</div>
+        <p><dfn>Statistical power</dfn> = the probability of correctly detecting a real effect. Aim for power ≥ 0.80. Power increases when: sample size increases, effect size is larger, or alpha is set higher.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l3">
+    <button class="level-header l3" aria-expanded="false" aria-controls="s5-l3-body" id="s5-l3-btn">
+      <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
+      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l3 collapsed" id="s5-l3-body" role="region" aria-labelledby="s5-l3-btn">
+      <p>The p-value does NOT tell you the probability that H₀ is true. It tells you P(data this extreme or more extreme | H₀ is true). The distinction is critical. A p = 0.03 means that IF the null is true, there is a 3% chance of seeing data this extreme — not a 3% chance the null is true.</p>
+      <p><dfn>Statistical significance</dfn> ≠ <dfn>practical significance</dfn>. With n = 10,000, a drug might significantly reduce blood pressure by 0.5 mmHg (p = 0.001). That is clinically meaningless. Always report <dfn>effect sizes</dfn> (Cohen's d, r², NNT) alongside p-values.</p>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — One-Sided vs. Two-Sided Tests</div>
+        <p><strong>Two-sided test:</strong> "Does the drug change blood pressure at all?" Hₐ: μ ≠ 0. The critical region is split: 2.5% in each tail.</p>
+        <p><strong>One-sided test:</strong> "Does the drug lower blood pressure?" Hₐ: μ &lt; 0. The entire critical region is in one tail (5%).</p>
+        <p><strong>Caution:</strong> Choosing a one-sided test after seeing your data is p-hacking. The test direction must be committed to before data collection based on scientific reasoning, not convenience. One-sided tests have more power but are only appropriate when a result in the opposite direction would be meaningless or impossible.</p>
+      </div>
+      <div class="warning-box">
+        <div class="warning-label" aria-hidden="true">Multiple Comparisons Problem</div>
+        <p>If you run 20 tests at α = 0.05, you expect 1 false positive purely by chance. The probability of at least one false positive = 1 − (0.95)²⁰ = 64%. Solutions: Bonferroni correction (divide α by number of tests) or control the false discovery rate (Benjamini-Hochberg). Any study reporting many comparisons without a correction method should be read skeptically.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ==================== SECTION 06 ==================== -->
+<article class="section-card" id="s6" aria-labelledby="s6-heading">
+  <h2 id="s6-heading"><span class="sec-num" aria-hidden="true">06</span>Common Statistical Tests</h2>
+
+  <div class="level-block l1">
+    <button class="level-header l1" aria-expanded="true" aria-controls="s6-l1-body" id="s6-l1-btn">
+      <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
+      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-chevron open" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l1" id="s6-l1-body" role="region" aria-labelledby="s6-l1-btn">
+      <p>Different questions need different statistical tests — just like different tools in a toolbox. Choosing the wrong test gives you wrong answers, even with correct data.</p>
+      <div class="mnemonic">
+        <div class="mnemonic-label" aria-hidden="true">Three Questions to Pick Your Test</div>
+        <p><strong>1.</strong> How many groups? (1, 2, or 3+) &nbsp;&nbsp; <strong>2.</strong> What kind of data? (numbers vs. categories) &nbsp;&nbsp; <strong>3.</strong> Are groups the same people or different people? (paired vs. independent)</p>
+        <p>Those three answers almost always point you to the right test.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l2">
+    <button class="level-header l2" aria-expanded="false" aria-controls="s6-l2-body" id="s6-l2-btn">
+      <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
+      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l2 collapsed" id="s6-l2-body" role="region" aria-labelledby="s6-l2-btn">
+      <table class="ref">
+        <caption>Statistical test selection guide</caption>
+        <thead><tr><th scope="col">Situation</th><th scope="col">Test to Use</th><th scope="col">What It Asks</th></tr></thead>
+        <tbody>
+          <tr><td>One sample mean vs. known value</td><td>One-sample t-test</td><td>Is my sample mean different from some target?</td></tr>
+          <tr><td>Two independent groups, numeric data</td><td>Independent t-test</td><td>Are two groups' means different?</td></tr>
+          <tr><td>Same people measured twice (before/after)</td><td>Paired t-test</td><td>Is the average change different from zero?</td></tr>
+          <tr><td>Three or more groups, numeric data</td><td>One-way ANOVA</td><td>Is at least one group's mean different?</td></tr>
+          <tr><td>Two categorical variables</td><td>Chi-square test</td><td>Are these two categories associated?</td></tr>
+          <tr><td>Relationship between two numeric variables</td><td>Pearson correlation / regression</td><td>Do they move together? Can one predict the other?</td></tr>
+        </tbody>
+      </table>
+      <h3>Chi-Square Test — Step by Step</h3>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Is Exercise Associated With Flu?</div>
+        <p><strong>Data:</strong> 200 people — 100 who exercise regularly and 100 who do not. Among exercisers: 20 got flu, 80 did not. Non-exercisers: 40 got flu, 60 did not.</p>
+        <p><strong>If there is no association (null hypothesis):</strong> Expected flu rate = 30% in both groups. So expected counts = 30 flu / 70 no-flu in each group.</p>
+        <p>χ² = (20−30)²/30 + (80−70)²/70 + (40−30)²/30 + (60−70)²/70</p>
+        <p>= 100/30 + 100/70 + 100/30 + 100/70 = 3.33 + 1.43 + 3.33 + 1.43 = <strong>9.52</strong></p>
+        <p><strong>Degrees of freedom</strong> = (rows − 1)(columns − 1) = 1 × 1 = 1</p>
+        <p><strong>Critical value</strong> at df=1, α=0.05 = 3.84. Since 9.52 &gt; 3.84: <strong>Reject the null. Exercise is significantly associated with lower flu rates.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l3">
+    <button class="level-header l3" aria-expanded="false" aria-controls="s6-l3-body" id="s6-l3-btn">
+      <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
+      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l3 collapsed" id="s6-l3-body" role="region" aria-labelledby="s6-l3-btn">
+      <p>The independent t-test assumes: continuous data, independence of observations, normality of both groups (less critical with n &gt; 30), and approximately equal variances (homoscedasticity). Levene's test checks the variance assumption. If variances are unequal, use Welch's t-test, which does not assume equal variances.</p>
+      <div class="formula-box">
+        <div class="formula-label" aria-hidden="true">Independent Two-Sample T-Statistic</div>
+        <code>t = (x̄₁ − x̄₂) / √(s₁²/n₁ + s₂²/n₂)</code>
+      </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Paired vs. Independent t-Test</div>
+        <p><strong>Scenario:</strong> Researchers test whether a relaxation intervention lowers blood pressure. They measure BP before and after in the same 20 patients.</p>
+        <p><strong>Wrong test:</strong> Independent t-test (ignores the pairing — treats 40 measurements as if from 40 different people).</p>
+        <p><strong>Right test:</strong> Paired t-test (analyzes the difference score for each person, then tests if the mean difference ≠ 0).</p>
+        <p><strong>Why it matters:</strong> Pairing removes between-person variability (some people naturally have higher BP). The paired test has more power because it controls for this noise. If the mean difference = −8 mmHg, SD of differences = 6, n = 20: t = −8 / (6/√20) = −8 / 1.34 = <strong>−5.97</strong>, p &lt; 0.001.</p>
+      </div>
+      <p>For chi-square tests, all expected cell frequencies must be ≥ 5. If this assumption is violated (small samples or rare events), use <dfn>Fisher's exact test</dfn>, which calculates the exact probability rather than using the chi-square approximation.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ==================== SECTION 07 ==================== -->
+<article class="section-card" id="s7" aria-labelledby="s7-heading">
+  <h2 id="s7-heading"><span class="sec-num" aria-hidden="true">07</span>Correlation &amp; Regression</h2>
+
+  <div class="level-block l1">
+    <button class="level-header l1" aria-expanded="true" aria-controls="s7-l1-body" id="s7-l1-btn">
+      <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
+      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-chevron open" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l1" id="s7-l1-body" role="region" aria-labelledby="s7-l1-btn">
+      <p><dfn>Correlation</dfn> measures whether two variables tend to move together. As height increases, weight tends to increase too — that is a positive correlation. As temperature goes up, hot chocolate sales go down — that is a negative correlation.</p>
+      <div class="warning-box">
+        <div class="warning-label" aria-hidden="true">Most Important Concept in This Section</div>
+        <p><strong>Correlation does NOT mean causation.</strong> Ice cream sales and drowning deaths are positively correlated — but eating ice cream does not cause drowning. Both go up in summer because of heat. A third factor (the season) drives both. This is called a <dfn>confounding variable</dfn>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l2">
+    <button class="level-header l2" aria-expanded="false" aria-controls="s7-l2-body" id="s7-l2-btn">
+      <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
+      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l2 collapsed" id="s7-l2-body" role="region" aria-labelledby="s7-l2-btn">
+      <p>The <dfn>Pearson correlation coefficient (r)</dfn> ranges from −1 to +1. As a rough guide: |r| &lt; 0.3 is weak; 0.3–0.7 is moderate; &gt; 0.7 is strong. The sign tells the direction; the number tells the strength.</p>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Interpreting r and r²</div>
+        <p>Study hours vs. exam scores: r = <strong>0.80</strong></p>
+        <p>r² = 0.80² = <strong>0.64</strong></p>
+        <p><strong>What r = 0.80 tells you:</strong> Strong positive relationship — more study hours → higher scores.</p>
+        <p><strong>What r² = 0.64 tells you:</strong> 64% of the variation in exam scores can be explained by variation in study hours. The other 36% is explained by other factors: sleep quality, anxiety, prior knowledge, how well the test matched the material studied.</p>
+        <p><strong>r² is called the coefficient of determination</strong> — it tells you the practical usefulness of the relationship.</p>
+      </div>
+      <h3>Simple Linear Regression</h3>
+      <div class="formula-box">
+        <div class="formula-label" aria-hidden="true">Regression Line</div>
+        <code>ŷ = b₀ + b₁x</code>
+        <p style="font-size:.85rem;margin-top:.3rem;color:var(--text-muted);">b₀ = y-intercept (predicted Y when X = 0) &nbsp;&nbsp; b₁ = slope (change in Y for each 1-unit increase in X)</p>
+      </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Reading a Regression Equation</div>
+        <p>Predicted GPA = 1.5 + 0.08 × (study hours per week)</p>
+        <p><strong>Slope = 0.08:</strong> Each additional hour of study per week predicts a 0.08 increase in GPA.</p>
+        <p>20 hrs/week → GPA = 1.5 + 1.6 = <strong>3.1</strong></p>
+        <p>30 hrs/week → GPA = 1.5 + 2.4 = <strong>3.9</strong></p>
+        <p><strong>Important:</strong> Do not predict GPA for 60 hours/week — that is outside the data range. The relationship might not hold there.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l3">
+    <button class="level-header l3" aria-expanded="false" aria-controls="s7-l3-body" id="s7-l3-btn">
+      <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
+      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l3 collapsed" id="s7-l3-body" role="region" aria-labelledby="s7-l3-btn">
+      <p>Regression assumptions (LINE): <strong>L</strong>inearity (relationship is linear); <strong>I</strong>ndependence of residuals; <strong>N</strong>ormality of residuals; <strong>E</strong>qual variance (homoscedasticity — residuals have constant spread across all X values). Violations require transformation or different modeling approaches.</p>
+      <p><dfn>Multiple regression</dfn> extends the model: ŷ = b₀ + b₁x₁ + b₂x₂ + … + bₙxₙ. Each coefficient represents the effect of that variable while holding all others constant. This is how researchers control for confounders statistically.</p>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Multicollinearity Warning</div>
+        <p><strong>Problem:</strong> A researcher regresses blood pressure on both age and years of smoking. Age and smoking years are highly correlated (older people have smoked longer).</p>
+        <p><strong>Result:</strong> Each coefficient becomes unreliable because the model cannot distinguish the independent effect of age from the effect of smoking years. This is <dfn>multicollinearity</dfn>.</p>
+        <p><strong>Solutions:</strong> Remove one predictor, combine them into a composite, or use ridge regression. Variance Inflation Factor (VIF) &gt; 10 flags problematic multicollinearity.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ==================== SECTION 08 ==================== -->
+<article class="section-card" id="s8" aria-labelledby="s8-heading">
+  <h2 id="s8-heading"><span class="sec-num" aria-hidden="true">08</span>ANOVA — Analysis of Variance</h2>
+
+  <div class="level-block l1">
+    <button class="level-header l1" aria-expanded="true" aria-controls="s8-l1-body" id="s8-l1-btn">
+      <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
+      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-chevron open" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l1" id="s8-l1-body" role="region" aria-labelledby="s8-l1-btn">
+      <p><dfn>ANOVA</dfn> answers the question: "Are the means of three or more groups different from each other?" It is like a t-test, but for more than two groups at the same time.</p>
+      <div class="think-box">
+        <div class="think-label" aria-hidden="true">Think of It This Way</div>
+        <p>You have three study groups: Group A (no music), Group B (classical music), Group C (pop music). You give all three groups the same test. Are their average scores actually different, or are the differences just random chance? ANOVA answers that.</p>
+      </div>
+      <p><strong>Why not just run three separate t-tests?</strong> Because each test has a 5% chance of a false alarm, and running three tests means three chances for a false alarm. ANOVA controls that by doing it all at once.</p>
+    </div>
+  </div>
+
+  <div class="level-block l2">
+    <button class="level-header l2" aria-expanded="false" aria-controls="s8-l2-body" id="s8-l2-btn">
+      <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
+      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l2 collapsed" id="s8-l2-body" role="region" aria-labelledby="s8-l2-btn">
+      <div class="formula-box">
+        <div class="formula-label" aria-hidden="true">The F-Statistic</div>
+        <code>F = MS_between / MS_within</code>
+        <p style="font-size:.85rem;margin-top:.3rem;color:var(--text-muted);">MS = Mean Square = SS / df. A large F means between-group differences dominate the noise.</p>
+      </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Interpreting ANOVA Output</div>
+        <p><strong>Scenario:</strong> Three diets tested on 30 people (10 per group). Weight loss after 3 months:</p>
+        <p>Diet A: mean = 4 lbs &nbsp;&nbsp; Diet B: mean = 7 lbs &nbsp;&nbsp; Diet C: mean = 12 lbs</p>
+        <p>ANOVA F(2, 27) = 8.43, p = 0.001</p>
+        <p><strong>Interpretation:</strong> p = 0.001 &lt; 0.05, so at least one diet produces significantly different weight loss than the others. But ANOVA does NOT tell us which pair(s) differ.</p>
+        <p><strong>Next step:</strong> Run a post-hoc test (like Tukey HSD) to identify the specific pairs. Result might show: A vs. C is significant, B vs. C is significant, but A vs. B is not.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l3">
+    <button class="level-header l3" aria-expanded="false" aria-controls="s8-l3-body" id="s8-l3-btn">
+      <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
+      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l3 collapsed" id="s8-l3-body" role="region" aria-labelledby="s8-l3-btn">
+      <p>ANOVA assumptions: independence of observations; approximate normality within each group; homogeneity of variance across groups (tested with Levene's or Bartlett's test). ANOVA is reasonably robust to mild normality violations with n &gt; 15 per group, but variance heterogeneity is more problematic.</p>
+      <p>Degrees of freedom: df_between = k − 1 (k = number of groups); df_within = N − k (N = total observations). Total df = N − 1.</p>
+      <p><dfn>Two-way ANOVA</dfn> tests two independent variables simultaneously and also tests their <dfn>interaction</dfn>. An interaction means the effect of variable A depends on the level of variable B. For example, a drug might lower blood pressure in women but raise it in men — that is a significant drug × sex interaction, and it would be missed by two separate one-way ANOVAs.</p>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Why Multiple T-Tests Are Wrong</div>
+        <p>With 4 groups, you need C(4,2) = 6 pairwise t-tests.</p>
+        <p>P(at least one false positive) = 1 − (0.95)⁶ = 1 − 0.735 = <strong>26.5%</strong></p>
+        <p>You intended a 5% Type I error rate. You got a 26.5% rate. Your entire study's credibility is compromised. ANOVA + post-hoc tests control this by maintaining the family-wise error rate at α = 0.05.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ==================== SECTION 09 ==================== -->
+<article class="section-card" id="s9" aria-labelledby="s9-heading">
+  <h2 id="s9-heading"><span class="sec-num" aria-hidden="true">09</span>Non-Parametric Tests</h2>
+
+  <div class="level-block l1">
+    <button class="level-header l1" aria-expanded="true" aria-controls="s9-l1-body" id="s9-l1-btn">
+      <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
+      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-chevron open" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l1" id="s9-l1-body" role="region" aria-labelledby="s9-l1-btn">
+      <p>Most statistical tests assume your data follows a bell curve. But what if it does not? Or what if your data is ranked (like "rate your pain from 1–10") rather than measured precisely? That is when you use <dfn>non-parametric tests</dfn> — they make fewer assumptions about the shape of your data.</p>
+      <div class="think-box">
+        <div class="think-label" aria-hidden="true">Think of It This Way</div>
+        <p>Regular (parametric) tests are like a fancy scale that gives exact readings — but it breaks down if you put something weird on it. Non-parametric tests are like a simple ranking system — less powerful, but they work even when the data is messy.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l2">
+    <button class="level-header l2" aria-expanded="false" aria-controls="s9-l2-body" id="s9-l2-btn">
+      <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
+      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l2 collapsed" id="s9-l2-body" role="region" aria-labelledby="s9-l2-btn">
+      <table class="ref">
+        <caption>Parametric tests and their non-parametric alternatives</caption>
+        <thead><tr><th scope="col">If You Would Use…</th><th scope="col">Use Instead…</th><th scope="col">When Data Is…</th></tr></thead>
+        <tbody>
+          <tr><td>Independent t-test</td><td>Mann-Whitney U</td><td>Non-normal or ordinal, two independent groups</td></tr>
+          <tr><td>Paired t-test</td><td>Wilcoxon signed-rank</td><td>Non-normal or ordinal, two related measurements</td></tr>
+          <tr><td>One-way ANOVA</td><td>Kruskal-Wallis</td><td>Non-normal or ordinal, three or more groups</td></tr>
+          <tr><td>Pearson correlation</td><td>Spearman rank correlation</td><td>Ordinal or monotone-but-non-linear relationship</td></tr>
+        </tbody>
+      </table>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — When to Choose Non-Parametric</div>
+        <p><strong>Scenario:</strong> Nurses rate post-surgery pain for 10 patients before and after a new protocol. Ratings are 1–10 (ordinal scale). Small sample, clear non-normal distribution.</p>
+        <p>Before: 8, 7, 9, 6, 8, 7, 9, 8, 7, 6 &nbsp;&nbsp; After: 4, 3, 5, 4, 3, 4, 5, 4, 3, 4</p>
+        <p><strong>Wrong choice:</strong> Paired t-test (pain ratings are ordinal — the difference between 3 and 4 may not equal the difference between 8 and 9)</p>
+        <p><strong>Right choice:</strong> Wilcoxon signed-rank test (ranks the differences without assuming equal intervals between scale values)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l3">
+    <button class="level-header l3" aria-expanded="false" aria-controls="s9-l3-body" id="s9-l3-btn">
+      <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
+      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l3 collapsed" id="s9-l3-body" role="region" aria-labelledby="s9-l3-btn">
+      <p>Non-parametric tests replace raw data values with their <dfn>ranks</dfn>. The Mann-Whitney U test checks whether values from Group 1 tend to have higher or lower ranks than values from Group 2. By working with ranks, the test is insensitive to extreme outliers and does not require a distributional assumption.</p>
+      <p>The tradeoff: non-parametric tests are <dfn>less powerful</dfn> than their parametric counterparts when parametric assumptions are actually met. A t-test on normally distributed data will detect real effects more often than a Mann-Whitney U on the same data. If your data truly meets parametric assumptions, the parametric test is preferred.</p>
+      <div class="mnemonic">
+        <div class="mnemonic-label" aria-hidden="true">Decision Rule</div>
+        <p>Continuous data + n &gt; 20 per group + roughly symmetric → parametric test. Ordinal data, small n, heavy-tailed distribution, or marked outliers → non-parametric. In doubt: run both. If they agree (both p &lt; 0.05 or both p &gt; 0.05), report the parametric. If they disagree, report the non-parametric and note the discrepancy.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ==================== SECTION 10 ==================== -->
+<article class="section-card" id="s10" aria-labelledby="s10-heading">
+  <h2 id="s10-heading"><span class="sec-num" aria-hidden="true">10</span>Study Design &amp; Biostatistics</h2>
+
+  <div class="level-block l1">
+    <button class="level-header l1" aria-expanded="true" aria-controls="s10-l1-body" id="s10-l1-btn">
+      <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
+      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-chevron open" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l1" id="s10-l1-body" role="region" aria-labelledby="s10-l1-btn">
+      <p>How you design a study determines what you can and cannot conclude. The most important distinction: does your study prove <em>cause</em> or just show <em>association</em>?</p>
+      <div class="think-box">
+        <div class="think-label" aria-hidden="true">The Gold Standard</div>
+        <p>A <dfn>randomized controlled trial (RCT)</dfn> randomly assigns people to treatment or control groups. Because assignment is random, the groups are similar in every way except the treatment — so any difference in outcomes must be caused by the treatment. All other study designs can only show that two things happen together, not that one causes the other.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l2">
+    <button class="level-header l2" aria-expanded="false" aria-controls="s10-l2-body" id="s10-l2-btn">
+      <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
+      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l2 collapsed" id="s10-l2-body" role="region" aria-labelledby="s10-l2-btn">
+      <table class="ref">
+        <caption>Study designs ranked by strength of evidence (strongest first)</caption>
+        <thead><tr><th scope="col">Design</th><th scope="col">Description</th><th scope="col">Can Prove Causation?</th></tr></thead>
+        <tbody>
+          <tr><td>Randomized controlled trial (RCT)</td><td>Randomly assign to treatment or control</td><td><strong>Yes</strong> — gold standard</td></tr>
+          <tr><td>Cohort study (prospective)</td><td>Follow exposed vs. unexposed groups forward in time</td><td>No — only association</td></tr>
+          <tr><td>Case-control study</td><td>Compare people with the disease to people without; look back at exposures</td><td>No — only association</td></tr>
+          <tr><td>Cross-sectional</td><td>Measure exposure and outcome at the same time</td><td>No — cannot determine which came first</td></tr>
+          <tr><td>Case report/series</td><td>Describe one or a few patients in detail</td><td>No — no comparison group</td></tr>
+        </tbody>
+      </table>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — The Classic Confounder</div>
+        <p><strong>Observation:</strong> Coffee drinkers have higher rates of lung cancer.</p>
+        <p><strong>Should people quit coffee?</strong> Not yet. Coffee drinkers are also more likely to smoke. Smoking is associated with both coffee drinking (the exposure) and lung cancer (the outcome). It is a <dfn>confounder</dfn>.</p>
+        <p><strong>After controlling for smoking:</strong> The association between coffee and lung cancer largely disappears. It was not the coffee — it was the cigarettes that traveled with the coffee.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l3">
+    <button class="level-header l3" aria-expanded="false" aria-controls="s10-l3-body" id="s10-l3-btn">
+      <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
+      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l3 collapsed" id="s10-l3-body" role="region" aria-labelledby="s10-l3-btn">
+      <table class="ref">
+        <caption>Types of bias in research studies</caption>
+        <thead><tr><th scope="col">Bias Type</th><th scope="col">Description</th><th scope="col">Example</th></tr></thead>
+        <tbody>
+          <tr><td>Selection bias</td><td>Systematic differences in who is enrolled</td><td>Using gym members to study exercise habits — they are not representative of the general population</td></tr>
+          <tr><td>Recall bias</td><td>People with disease remember exposures differently</td><td>Cancer patients are more likely to remember and report past chemical exposures than healthy controls</td></tr>
+          <tr><td>Observer bias</td><td>Researcher's expectations influence measurements</td><td>Unblinded physician rates treatment group patients as "improved" more often</td></tr>
+          <tr><td>Attrition bias</td><td>Participants who drop out differ from those who stay</td><td>Sicker patients stop taking a drug, making the remaining group look healthier — results appear better than reality</td></tr>
+          <tr><td>Lead-time bias</td><td>Earlier detection appears to improve survival</td><td>Screening catches cancer earlier, but patient still dies at the same age — we just knew about it longer</td></tr>
+        </tbody>
+      </table>
+      <p><dfn>Blinding</dfn> prevents observer and participant bias. Single-blind = participant does not know assignment. Double-blind = neither participant nor researcher knows. Triple-blind = the statistician analyzing data also does not know group assignments until after analysis. Randomization + double-blinding = highest quality evidence in a clinical trial.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ==================== SECTION 11 ==================== -->
+<article class="section-card" id="s11" aria-labelledby="s11-heading">
+  <h2 id="s11-heading"><span class="sec-num" aria-hidden="true">11</span>Diagnostic Testing &amp; Epidemiology</h2>
+
+  <div class="level-block l1">
+    <button class="level-header l1" aria-expanded="true" aria-controls="s11-l1-body" id="s11-l1-btn">
+      <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
+      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-chevron open" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l1" id="s11-l1-body" role="region" aria-labelledby="s11-l1-btn">
+      <p>When doctors test for a disease, the test is not perfect. It can miss real cases (<dfn>false negative</dfn>) or flag healthy people (<dfn>false positive</dfn>). Understanding how good a test really is involves two key concepts: <dfn>sensitivity</dfn> and <dfn>specificity</dfn>.</p>
+      <div class="think-box">
+        <div class="think-label" aria-hidden="true">Simple Memory Hook</div>
+        <p><strong>Sensitive test:</strong> Very good at finding sick people. If you test negative, you probably are NOT sick (rules OUT disease). Think: a smoke alarm — very sensitive, goes off at even tiny amounts of smoke.</p>
+        <p><strong>Specific test:</strong> Very good at confirming healthy people. If you test positive, you probably DO have the disease (rules IN disease). Think: a DNA test — very specific, rarely points to the wrong person.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l2">
+    <button class="level-header l2" aria-expanded="false" aria-controls="s11-l2-body" id="s11-l2-btn">
+      <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
+      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l2 collapsed" id="s11-l2-body" role="region" aria-labelledby="s11-l2-btn">
+      <h3>The 2×2 Table</h3>
+      <table class="ref">
+        <caption>2×2 diagnostic test table structure</caption>
+        <thead><tr><th scope="col"></th><th scope="col">Disease Present</th><th scope="col">Disease Absent</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Test Positive</th><td>True Positive (TP)</td><td>False Positive (FP)</td></tr>
+          <tr><th scope="row">Test Negative</th><td>False Negative (FN)</td><td>True Negative (TN)</td></tr>
+        </tbody>
+      </table>
+      <table class="ref" style="margin-top:.75rem;">
+        <caption>Sensitivity, specificity, and predictive values — formulas and plain-English meanings</caption>
+        <thead><tr><th scope="col">Measure</th><th scope="col">Formula</th><th scope="col">Plain English</th></tr></thead>
+        <tbody>
+          <tr><td>Sensitivity</td><td><code>TP / (TP + FN)</code></td><td>Of everyone who is sick, what fraction does the test catch?</td></tr>
+          <tr><td>Specificity</td><td><code>TN / (TN + FP)</code></td><td>Of everyone who is healthy, what fraction does the test correctly clear?</td></tr>
+          <tr><td>Positive Predictive Value (PPV)</td><td><code>TP / (TP + FP)</code></td><td>If I test positive, what is the probability I am actually sick?</td></tr>
+          <tr><td>Negative Predictive Value (NPV)</td><td><code>TN / (TN + FN)</code></td><td>If I test negative, what is the probability I am actually healthy?</td></tr>
+        </tbody>
+      </table>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Calculating All Four Values</div>
+        <p><strong>Strep throat rapid test:</strong> 200 patients tested. TP = 45, FP = 10, FN = 5, TN = 140.</p>
+        <p>Sensitivity = 45 / (45+5) = 45/50 = <strong>90%</strong> &nbsp;&nbsp; (catches 90% of strep cases)</p>
+        <p>Specificity = 140 / (140+10) = 140/150 = <strong>93.3%</strong> &nbsp;&nbsp; (correctly clears 93.3% of non-strep)</p>
+        <p>PPV = 45 / (45+10) = 45/55 = <strong>81.8%</strong> &nbsp;&nbsp; (if positive, 82% chance you have strep)</p>
+        <p>NPV = 140 / (140+5) = 140/145 = <strong>96.6%</strong> &nbsp;&nbsp; (if negative, 97% chance you do not have strep)</p>
+      </div>
+      <div class="mnemonic">
+        <div class="mnemonic-label" aria-hidden="true">SnNOut and SpPIn</div>
+        <p><strong>Sn</strong>N<strong>Out</strong>: High <strong>Sn</strong>sitivity + <strong>N</strong>egative result = rules <strong>Out</strong> disease. Use for screening.</p>
+        <p><strong>Sp</strong>P<strong>In</strong>: High <strong>Sp</strong>ecificity + <strong>P</strong>ositive result = rules <strong>In</strong> disease. Use for confirmation.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block l3">
+    <button class="level-header l3" aria-expanded="false" aria-controls="s11-l3-body" id="s11-l3-btn">
+      <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
+      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-chevron" aria-hidden="true">▼</span>
+    </button>
+    <div class="level-body l3 collapsed" id="s11-l3-body" role="region" aria-labelledby="s11-l3-btn">
+      <h3>Epidemiological Measures</h3>
+      <table class="ref">
+        <caption>Key epidemiological measures and their formulas</caption>
+        <thead><tr><th scope="col">Measure</th><th scope="col">Formula</th><th scope="col">Study Type</th></tr></thead>
+        <tbody>
+          <tr><td>Relative Risk (RR)</td><td><code>[a/(a+b)] / [c/(c+d)]</code></td><td>Cohort studies, RCTs only</td></tr>
+          <tr><td>Odds Ratio (OR)</td><td><code>(a × d) / (b × c)</code></td><td>Case-control studies</td></tr>
+          <tr><td>Absolute Risk Reduction (ARR)</td><td><code>Risk_control − Risk_treatment</code></td><td>RCTs</td></tr>
+          <tr><td>Number Needed to Treat (NNT)</td><td><code>1 / ARR</code></td><td>RCTs</td></tr>
+        </tbody>
+      </table>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Relative Risk and NNT</div>
+        <p><strong>Cohort study:</strong> 1,000 smokers and 1,000 non-smokers followed for 10 years. 150 smokers develop heart disease; 30 non-smokers develop it.</p>
+        <p>RR = (150/1000) / (30/1000) = 0.15 / 0.03 = <strong>5.0</strong></p>
+        <p><strong>Interpretation:</strong> Smokers are 5 times more likely to develop heart disease. RR &gt; 1 = increased risk; RR &lt; 1 = protective; RR = 1 = no difference. The 95% CI for RR must not include 1 for the result to be statistically significant.</p>
+        <p><strong>NNT example:</strong> A drug reduces heart attack risk from 8% (control) to 5% (treatment). ARR = 8% − 5% = 3%. NNT = 1/0.03 = <strong>33</strong>. You must treat 33 patients to prevent one heart attack. NNT helps translate statistical findings into clinical meaning.</p>
+      </div>
+      <div class="key-point">
+        <div class="key-label" aria-hidden="true">PPV and Prevalence</div>
+        <p>PPV depends heavily on <dfn>prevalence</dfn>. Even a highly accurate test has poor PPV when applied to a low-prevalence population — most positives will be false positives (see the Bayes' Theorem worked example in Section 02). This is why population-wide screening for rare diseases requires extremely specific confirmatory tests before action is taken.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ==================== SECTION 12 ==================== -->
+<article class="section-card" id="s12" aria-labelledby="s12-heading">
+  <h2 id="s12-heading"><span class="sec-num" aria-hidden="true">12</span>Essential Formulas</h2>
+  <p>This is your formula reference sheet. These are the equations most commonly needed on exams.</p>
+  <table class="ref">
+    <caption>Essential statistics and biostatistics formulas</caption>
+    <thead><tr><th scope="col">Formula</th><th scope="col">Equation</th><th scope="col">When To Use It</th></tr></thead>
+    <tbody>
+      <tr><td>Sample mean</td><td><code>x̄ = Σxᵢ / n</code></td><td>Average of a sample</td></tr>
+      <tr><td>Sample standard deviation</td><td><code>s = √[Σ(xᵢ−x̄)² / (n−1)]</code></td><td>Spread of a sample</td></tr>
+      <tr><td>Standard error</td><td><code>SE = s / √n</code></td><td>Precision of a sample mean</td></tr>
+      <tr><td>Z-score</td><td><code>z = (x − μ) / σ</code></td><td>Standardizing a value</td></tr>
+      <tr><td>Confidence interval (mean)</td><td><code>CI = x̄ ± t* × (s/√n)</code></td><td>Range of plausible population means</td></tr>
+      <tr><td>One-sample t-test</td><td><code>t = (x̄ − μ₀) / (s/√n)</code></td><td>Test sample mean vs. known value</td></tr>
+      <tr><td>Two-sample t-test</td><td><code>t = (x̄₁−x̄₂) / √(s₁²/n₁ + s₂²/n₂)</code></td><td>Compare two independent group means</td></tr>
+      <tr><td>Chi-square</td><td><code>χ² = Σ(O−E)² / E</code></td><td>Test association between categorical variables</td></tr>
+      <tr><td>Sensitivity</td><td><code>TP / (TP + FN)</code></td><td>True positive rate of a diagnostic test</td></tr>
+      <tr><td>Specificity</td><td><code>TN / (TN + FP)</code></td><td>True negative rate of a diagnostic test</td></tr>
+      <tr><td>Positive predictive value</td><td><code>TP / (TP + FP)</code></td><td>Probability of disease given positive test</td></tr>
+      <tr><td>Relative risk</td><td><code>[a/(a+b)] / [c/(c+d)]</code></td><td>Risk ratio from cohort studies/RCTs</td></tr>
+      <tr><td>Odds ratio</td><td><code>(a×d) / (b×c)</code></td><td>Risk measure from case-control studies</td></tr>
+      <tr><td>NNT</td><td><code>1 / ARR</code></td><td>Patients to treat to prevent one outcome</td></tr>
+      <tr><td>Regression line</td><td><code>ŷ = b₀ + b₁x</code></td><td>Predict Y from X</td></tr>
+      <tr><td>F-statistic (ANOVA)</td><td><code>F = MS_between / MS_within</code></td><td>Test 3+ group means simultaneously</td></tr>
+    </tbody>
+  </table>
+</article>
+
+<!-- ==================== PRACTICE AREA ==================== -->
+<section class="practice" id="practice" aria-labelledby="practice-heading">
+  <div class="practice-header">
+    <h2 id="practice-heading">Practice Questions</h2>
+    <p>Test your understanding with multiple choice, flashcards, and short-answer questions.</p>
+  </div>
+  <div role="tablist" aria-label="Practice question types" class="tab-bar">
+    <button role="tab" class="tab-btn active" id="tab-mc" aria-selected="true" aria-controls="panel-mc">Multiple Choice</button>
+    <button role="tab" class="tab-btn" id="tab-fc" aria-selected="false" aria-controls="panel-fc" tabindex="-1">Flashcards</button>
+    <button role="tab" class="tab-btn" id="tab-sa" aria-selected="false" aria-controls="panel-sa" tabindex="-1">Short Answer</button>
+  </div>
+
+  <!-- MC PANEL -->
+  <div role="tabpanel" id="panel-mc" aria-labelledby="tab-mc" class="tab-content active">
+    <p class="mc-score" id="mc-score" aria-live="polite"></p>
+    <div id="mc-area"></div>
+  </div>
+
+  <!-- FLASHCARD PANEL -->
+  <div role="tabpanel" id="panel-fc" aria-labelledby="tab-fc" class="tab-content" hidden>
+    <div class="fc-filters" role="group" aria-label="Filter flashcards by topic">
+      <button class="fc-filter active" data-cat="all" aria-pressed="true">All</button>
+      <button class="fc-filter" data-cat="descriptive" aria-pressed="false">Descriptive</button>
+      <button class="fc-filter" data-cat="inference" aria-pressed="false">Inference</button>
+      <button class="fc-filter" data-cat="tests" aria-pressed="false">Tests</button>
+      <button class="fc-filter" data-cat="epi" aria-pressed="false">Epi/Diagnostics</button>
+    </div>
+    <p class="fc-counter" id="fc-counter" aria-live="polite"></p>
+    <div class="fc-card" id="fc-card" role="button" tabindex="0" aria-label="Flashcard — press Enter or Space to flip">
+      <div class="fc-inner" id="fc-inner">
+        <div class="fc-front" id="fc-front" aria-hidden="false">
+          <div id="fc-term"></div>
+          <div class="fc-hint">Press Enter or click to flip</div>
+        </div>
+        <div class="fc-back" id="fc-back" aria-hidden="true">
+          <div id="fc-def"></div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-nav">
+      <button id="fc-prev" aria-label="Previous flashcard">← Prev</button>
+      <button id="fc-shuffle" aria-label="Shuffle flashcards">⇌ Shuffle</button>
+      <button id="fc-next" aria-label="Next flashcard">Next →</button>
+    </div>
+  </div>
+
+  <!-- SHORT ANSWER PANEL -->
+  <div role="tabpanel" id="panel-sa" aria-labelledby="tab-sa" class="tab-content" hidden>
+    <div id="sa-area"></div>
+  </div>
+</section>
+
+</div><!-- /container -->
+</main>
+
+<footer role="contentinfo" style="text-align:center;padding:2rem 1rem;font-size:.82rem;color:var(--text-muted);border-top:1px solid var(--border-light);margin-top:2rem;">
+  <p>Foundations: Closing the Gap Series &mdash; Statistics &amp; Biostatistics &mdash; Free Study Resource</p>
+  <p style="margin-top:.25rem;">For students who need to catch up. No prior background assumed.</p>
+</footer>
+
+<script>
+/* ===================================================
+   LEVEL ACCORDION
+=================================================== */
+document.querySelectorAll('.level-header').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const bodyId = btn.getAttribute('aria-controls');
+    const body = document.getElementById(bodyId);
+    const chevron = btn.querySelector('.level-chevron');
+    btn.setAttribute('aria-expanded', String(!expanded));
+    if (expanded) {
+      body.classList.add('collapsed');
+      chevron.classList.remove('open');
+    } else {
+      body.classList.remove('collapsed');
+      chevron.classList.add('open');
+    }
+  });
+  btn.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+  });
+});
+
+/* ===================================================
+   TABS
+=================================================== */
+const tabs = document.querySelectorAll('[role="tab"]');
+tabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => activateTab(tab));
+  tab.addEventListener('keydown', e => {
+    let idx = i;
+    if (e.key === 'ArrowRight') idx = (i + 1) % tabs.length;
+    else if (e.key === 'ArrowLeft') idx = (i - 1 + tabs.length) % tabs.length;
+    else if (e.key === 'Home') idx = 0;
+    else if (e.key === 'End') idx = tabs.length - 1;
+    else return;
+    e.preventDefault();
+    activateTab(tabs[idx]);
+    tabs[idx].focus();
+  });
+});
+
+function activateTab(tab) {
+  tabs.forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+    t.setAttribute('tabindex', '-1');
+    const panel = document.getElementById(t.getAttribute('aria-controls'));
+    panel.classList.remove('active');
+    panel.hidden = true;
+  });
+  tab.classList.add('active');
+  tab.setAttribute('aria-selected', 'true');
+  tab.removeAttribute('tabindex');
+  const panel = document.getElementById(tab.getAttribute('aria-controls'));
+  panel.classList.add('active');
+  panel.hidden = false;
+}
+
+/* ===================================================
+   MULTIPLE CHOICE
+=================================================== */
+const mcQuestions = [
+  { q: "A dataset has values 2, 3, 3, 4, 100. Which measure of central tendency best represents the typical value?",
+    opts: ["Mean","Median","Mode","Range"], correct: 1,
+    explain: "The mean is pulled way up to about 22.4 by the outlier (100). The median of 3 is not affected by extreme values and best represents the typical value. Always use the median when outliers are present." },
+  { q: "A z-score of −2.5 means the value is:",
+    opts: ["2.5 times the mean","2.5 standard deviations below the mean","2.5% below average","in the bottom 2.5% of scores"],
+    correct: 1,
+    explain: "A z-score directly tells you the number of standard deviations from the mean. Negative = below the mean. z = −2.5 means 2.5 SDs below the mean. It does NOT directly give you a percentile, though z = −2.5 does correspond to approximately the 0.6th percentile." },
+  { q: "You set α = 0.05 and your p-value is 0.03. You should:",
+    opts: ["Fail to reject H₀","Accept H₀","Reject H₀","Increase your sample size"],
+    correct: 2,
+    explain: "p = 0.03 is less than α = 0.05. This means the data would be unusual if H₀ were true (only a 3% chance). So you reject H₀. You never 'accept' H₀ — only reject it or fail to reject it." },
+  { q: "Which study design can establish causation?",
+    opts: ["Cross-sectional study","Case-control study","Prospective cohort study","Randomized controlled trial"],
+    correct: 3,
+    explain: "Only a randomized controlled trial (RCT) can establish causation because random assignment balances all known and unknown confounders between groups. All observational designs (cohort, case-control, cross-sectional) can show association but cannot prove causation." },
+  { q: "A test has high sensitivity. A negative result:",
+    opts: ["Rules IN the disease","Rules OUT the disease","Is unreliable","Indicates the patient has the disease"],
+    correct: 1,
+    explain: "SnNOut: High Sensitivity + Negative result = rules Out disease. A sensitive test catches almost all sick people — so if even THIS test came back negative, the patient almost certainly does not have the disease. Use sensitive tests for screening." },
+  { q: "What does r² = 0.49 mean in a regression analysis?",
+    opts: ["The correlation coefficient is 0.49","r = 0.49","49% of the variance in Y is explained by X","The regression line has a slope of 0.49"],
+    correct: 2,
+    explain: "r² (coefficient of determination) tells you the proportion of variance in Y explained by X. r² = 0.49 means 49% of the variation in Y is accounted for by X. The remaining 51% is due to other factors. Note: r = √0.49 = 0.70." },
+  { q: "When should you use ANOVA instead of multiple t-tests?",
+    opts: ["When you have exactly two groups","When comparing means of three or more groups","When data is categorical","When sample size is small"],
+    correct: 1,
+    explain: "ANOVA is used when comparing three or more group means simultaneously. Running multiple t-tests inflates the Type I error rate. With 3 groups and 3 t-tests: P(at least one false positive) = 1 − (0.95)³ = 14.3%, far above the intended 5%. ANOVA maintains α = 0.05 for the entire family of comparisons." },
+  { q: "The Central Limit Theorem states that:",
+    opts: ["All data follows a normal distribution","Larger samples always have more variance","Sample means are approximately normally distributed with large enough n regardless of population shape","The mean equals the median in any large sample"],
+    correct: 2,
+    explain: "The CLT says that the sampling distribution of the sample mean approaches a normal distribution as n increases, regardless of the original population shape. This is why z- and t-tests work even when individual data points are not normally distributed. Generally n ≥ 30 is sufficient." }
+];
+
+function buildMC() {
+  const area = document.getElementById('mc-area');
+  area.innerHTML = '';
+  let score = 0, answered = 0;
+  mcQuestions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'mc-card';
+    card.setAttribute('aria-labelledby', `mc-q-${qi}`);
+    card.innerHTML = `
+      <div class="mc-q" id="mc-q-${qi}" role="heading" aria-level="3">
+        <span class="mc-num" aria-hidden="true">${qi + 1}.</span>${q.q}
+      </div>
+      <div role="group" aria-label="Answer options for question ${qi + 1}">
+        ${q.opts.map((o, oi) => `
+          <button class="mc-opt" data-qi="${qi}" data-oi="${oi}"
+            aria-label="Option ${String.fromCharCode(65+oi)}: ${o}">${String.fromCharCode(65+oi)}. ${o}</button>
+        `).join('')}
+      </div>
+      <div class="mc-explain" id="mc-exp-${qi}" role="alert" aria-live="polite"></div>
+    `;
+    area.appendChild(card);
+    card.querySelectorAll('.mc-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.disabled) return;
+        const qi2 = parseInt(btn.dataset.qi);
+        const oi = parseInt(btn.dataset.oi);
+        const q2 = mcQuestions[qi2];
+        const opts = card.querySelectorAll('.mc-opt');
+        opts.forEach(o => { o.disabled = true; });
+        if (oi === q2.correct) {
+          btn.classList.add('correct');
+          btn.setAttribute('aria-label', btn.getAttribute('aria-label') + ' — Correct!');
+          score++;
+        } else {
+          btn.classList.add('wrong');
+          btn.setAttribute('aria-label', btn.getAttribute('aria-label') + ' — Incorrect');
+          opts[q2.correct].classList.add('correct');
+        }
+        const exp = document.getElementById(`mc-exp-${qi2}`);
+        exp.textContent = q2.explain;
+        exp.style.display = 'block';
+        answered++;
+        if (answered === mcQuestions.length) {
+          const pct = Math.round(score / mcQuestions.length * 100);
+          const scoreEl = document.getElementById('mc-score');
+          scoreEl.textContent = `Final Score: ${score} / ${mcQuestions.length} (${pct}%)`;
+          document.getElementById('live-region').textContent = `Quiz complete. You scored ${score} out of ${mcQuestions.length}.`;
+        }
+      });
+    });
+  });
+}
+buildMC();
+
+/* ===================================================
+   FLASHCARDS
+=================================================== */
+const flashcards = [
+  {term:"Mean",def:"The arithmetic average — add all values, divide by how many there are. Sensitive to outliers.",cat:"descriptive"},
+  {term:"Median",def:"The middle value when data is sorted. Preferred for skewed data because it resists outlier influence.",cat:"descriptive"},
+  {term:"Standard Deviation",def:"Measures how far data points typically fall from the mean. Small SD = tightly clustered; large SD = spread out.",cat:"descriptive"},
+  {term:"Z-Score",def:"(x − μ) / σ. Tells you how many standard deviations a value is from the mean. Used to standardize and compare across scales.",cat:"descriptive"},
+  {term:"Central Limit Theorem",def:"Sample means follow a normal distribution with large enough n (≥ 30), regardless of the population's shape. Foundation of hypothesis testing.",cat:"inference"},
+  {term:"Standard Error",def:"SE = s / √n. The standard deviation of the sampling distribution of the mean. Measures precision of the sample mean.",cat:"inference"},
+  {term:"95% Confidence Interval",def:"A range calculated so the procedure captures the true parameter 95% of the time. NOT a 95% probability the true value is in this specific interval.",cat:"inference"},
+  {term:"Null Hypothesis (H₀)",def:"The default assumption of no effect or no difference. You reject it only when evidence is strong enough (p ≤ α).",cat:"inference"},
+  {term:"P-value",def:"Probability of seeing data this extreme (or more) if H₀ is true. Small p = evidence against H₀. Does NOT tell you probability H₀ is true.",cat:"inference"},
+  {term:"Type I Error",def:"Rejecting H₀ when it is actually true (false positive). Probability = α. Like convicting an innocent person.",cat:"inference"},
+  {term:"Type II Error",def:"Failing to reject H₀ when it is actually false (false negative). Probability = β. Power = 1 − β.",cat:"inference"},
+  {term:"Independent t-test",def:"Compares means of two unrelated groups. Assumes continuous data, independence, approximate normality, equal variances.",cat:"tests"},
+  {term:"Paired t-test",def:"Compares before/after or matched measurements. Analyzes difference scores. More powerful than independent t-test when pairing is valid.",cat:"tests"},
+  {term:"Chi-Square Test",def:"Tests association between two categorical variables. Compares observed vs. expected cell counts. Requires expected cells ≥ 5.",cat:"tests"},
+  {term:"ANOVA F-statistic",def:"F = MS_between / MS_within. Tests if at least one of three or more group means differs. Significant F → run post-hoc tests to find which pairs differ.",cat:"tests"},
+  {term:"Pearson r",def:"Correlation coefficient from −1 to +1. Measures strength and direction of linear relationship. r² = proportion of variance explained.",cat:"tests"},
+  {term:"Sensitivity",def:"TP / (TP + FN). Proportion of sick people the test correctly identifies. High sensitivity → SnNOut (negative test rules out disease).",cat:"epi"},
+  {term:"Specificity",def:"TN / (TN + FP). Proportion of healthy people correctly cleared. High specificity → SpPIn (positive test rules in disease).",cat:"epi"},
+  {term:"Positive Predictive Value (PPV)",def:"TP / (TP + FP). Probability you actually have the disease given a positive test. Depends heavily on prevalence.",cat:"epi"},
+  {term:"Relative Risk (RR)",def:"[a/(a+b)] / [c/(c+d)]. Ratio of disease risk in exposed vs. unexposed groups. Used in cohort studies and RCTs.",cat:"epi"},
+  {term:"Odds Ratio (OR)",def:"(a×d) / (b×c). Ratio of odds of exposure in cases vs. controls. Used in case-control studies. Approximates RR when disease is rare.",cat:"epi"},
+  {term:"Number Needed to Treat (NNT)",def:"1 / ARR. Number of patients who must receive treatment to prevent one additional outcome. Clinical measure of treatment value.",cat:"epi"},
+  {term:"Confounder",def:"A variable associated with both the exposure and the outcome, distorting the apparent relationship between them.",cat:"epi"},
+  {term:"Selection Bias",def:"Systematic error from who is included in the study. Results may not generalize to the intended population.",cat:"epi"}
+];
+
+let fcFiltered = [...flashcards];
+let fcIdx = 0;
+let fcFlipped = false;
+
+function renderFC() {
+  const card = document.getElementById('fc-card');
+  const front = document.getElementById('fc-front');
+  const back = document.getElementById('fc-back');
+  const term = document.getElementById('fc-term');
+  const def = document.getElementById('fc-def');
+  const counter = document.getElementById('fc-counter');
+  if (fcFlipped) { card.classList.remove('flipped'); fcFlipped = false; front.setAttribute('aria-hidden','false'); back.setAttribute('aria-hidden','true'); }
+  term.textContent = fcFiltered[fcIdx].term;
+  def.textContent = fcFiltered[fcIdx].def;
+  counter.textContent = `Card ${fcIdx + 1} of ${fcFiltered.length}`;
+  card.setAttribute('aria-label', `Flashcard ${fcIdx + 1} of ${fcFiltered.length}: ${fcFiltered[fcIdx].term}. Press Enter or click to see definition.`);
+}
+
+document.getElementById('fc-card').addEventListener('click', () => {
+  fcFlipped = !fcFlipped;
+  const card = document.getElementById('fc-card');
+  const front = document.getElementById('fc-front');
+  const back = document.getElementById('fc-back');
+  card.classList.toggle('flipped', fcFlipped);
+  front.setAttribute('aria-hidden', String(fcFlipped));
+  back.setAttribute('aria-hidden', String(!fcFlipped));
+  if (fcFlipped) {
+    card.setAttribute('aria-label', `Definition: ${fcFiltered[fcIdx].def}`);
+    document.getElementById('live-region').textContent = fcFiltered[fcIdx].def;
+  } else {
+    card.setAttribute('aria-label', `Term: ${fcFiltered[fcIdx].term}. Press Enter or click to see definition.`);
+  }
+});
+document.getElementById('fc-card').addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); document.getElementById('fc-card').click(); }
+});
+document.getElementById('fc-next').addEventListener('click', () => { fcIdx = (fcIdx + 1) % fcFiltered.length; renderFC(); });
+document.getElementById('fc-prev').addEventListener('click', () => { fcIdx = (fcIdx - 1 + fcFiltered.length) % fcFiltered.length; renderFC(); });
+document.getElementById('fc-shuffle').addEventListener('click', () => {
+  for (let i = fcFiltered.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [fcFiltered[i], fcFiltered[j]] = [fcFiltered[j], fcFiltered[i]]; }
+  fcIdx = 0; renderFC();
+  document.getElementById('live-region').textContent = 'Cards shuffled.';
+});
+
+document.querySelectorAll('.fc-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.fc-filter').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+    btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
+    const cat = btn.dataset.cat;
+    fcFiltered = cat === 'all' ? [...flashcards] : flashcards.filter(c => c.cat === cat);
+    fcIdx = 0; renderFC();
+  });
+});
+renderFC();
+
+/* ===================================================
+   SHORT ANSWER
+=================================================== */
+const saQuestions = [
+  { q: "Explain the difference between a Type I error and a Type II error. Which one does alpha (α) control?",
+    concepts: [
+      {term:"Type I = false positive (rejected true H₀)",syns:["type i","false positive","rejected true","incorrect rejection","alpha error"],weight:3},
+      {term:"Type II = false negative (failed to reject false H₀)",syns:["type ii","false negative","failed to reject","missed real effect","beta error"],weight:3},
+      {term:"Alpha controls Type I error rate",syns:["alpha","α","controls type i","false positive rate","significance level"],weight:2},
+      {term:"Beta is the Type II error rate; Power = 1 − β",syns:["beta","power","1 minus beta","1-β","detect real"],weight:2}
+    ],
+    model:"A Type I error is a false positive — you reject the null hypothesis when it is actually true. The probability of a Type I error is α (the significance level), which you set before the study. A Type II error is a false negative — you fail to reject the null when it is actually false (there was a real effect you missed). The probability of a Type II error is β. Statistical power = 1 − β, the probability of correctly detecting a real effect. Alpha directly controls Type I error: setting α = 0.05 means you are willing to accept a 5% chance of a false positive."
+  },
+  { q: "A researcher runs 20 separate hypothesis tests on the same dataset, each at α = 0.05. Should they conclude that the one test that came back significant (p = 0.03) represents a real finding? Explain.",
+    concepts: [
+      {term:"Multiple comparisons inflate Type I error rate",syns:["multiple comparisons","multiple tests","inflate","family-wise","accumulate"],weight:3},
+      {term:"Expected 1 false positive out of 20 tests at α = 0.05",syns:["expected","1 out of 20","by chance","false positive expected","0.05 times 20"],weight:2},
+      {term:"Overall probability of at least one false positive is 64%",syns:["64%","1 minus 0.95","family-wise error","overall alpha","overall probability"],weight:2},
+      {term:"Needs Bonferroni or FDR correction",syns:["bonferroni","correction","adjust","fdr","false discovery"],weight:3}
+    ],
+    model:"No. When you run 20 tests at α = 0.05, you expect 20 × 0.05 = 1 false positive by chance alone. Finding exactly one significant result is exactly what you would expect under the null hypothesis. The family-wise error rate = 1 − (0.95)²⁰ = 64%, meaning a 64% chance of at least one false positive across all 20 tests. Without correction, this single significant result is very likely spurious. The researcher should apply Bonferroni correction (adjusted α = 0.05/20 = 0.0025) or control the false discovery rate."
+  },
+  { q: "Explain why the median is preferred over the mean for summarizing income data. Provide a specific example.",
+    concepts: [
+      {term:"Mean is pulled by extreme values/outliers",syns:["pulled","extreme","outlier","inflate","distorted","skew"],weight:3},
+      {term:"Median is resistant to outliers",syns:["resistant","not affected","middle value","robust","not influenced"],weight:2},
+      {term:"Income data is right-skewed",syns:["right skewed","right-skewed","skewed right","few very high","asymmetric"],weight:2},
+      {term:"Specific example showing mean > median due to outlier",syns:["example","for instance","suppose","consider","e.g","such as"],weight:2}
+    ],
+    model:"Income data is right-skewed — most people earn modest incomes, but a small number of very high earners pull the average upward dramatically. For example: five people earn $30K, $35K, $38K, $42K, and $2,000,000. The mean is about $429,000, which misrepresents the typical person completely. The median is $38,000, which accurately reflects what the typical person earns. When data contains outliers or is skewed, the median is the appropriate measure of center because it reflects the middle of the distribution rather than being pulled by extremes."
+  }
+];
+
+function renderSA() {
+  const area = document.getElementById('sa-area');
+  area.innerHTML = '';
+  saQuestions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'sa-card';
+    const taId = `sa-input-${qi}`;
+    card.innerHTML = `
+      <div class="sa-q" id="sa-q-${qi}" role="heading" aria-level="3">${qi + 1}. ${q.q}</div>
+      <label for="${taId}" class="sr-only" style="position:absolute;left:-9999px;">Your answer to question ${qi+1}</label>
+      <textarea id="${taId}" aria-labelledby="sa-q-${qi}" placeholder="Type your answer here — use specific terms and examples..."></textarea>
+      <button class="sa-submit" onclick="gradeSA(${qi})" aria-label="Check answer for question ${qi+1}">Check My Answer</button>
+      <div class="sa-result" id="sa-result-${qi}" role="region" aria-live="polite" aria-label="Result for question ${qi+1}"></div>
+    `;
+    area.appendChild(card);
+  });
+}
+
+function gradeSA(qi) {
+  const q = saQuestions[qi];
+  const input = document.getElementById('sa-input-' + qi).value.toLowerCase();
+  const result = document.getElementById('sa-result-' + qi);
+  let score = 0, maxScore = 0, tags = [];
+  q.concepts.forEach(c => {
+    maxScore += c.weight;
+    const hit = c.syns.some(s => input.includes(s.toLowerCase()));
+    if (hit) score += c.weight;
+    tags.push({ label: c.term, hit });
+  });
+  const words = input.trim().split(/\s+/).length;
+  if (words > 40) score = Math.min(maxScore, score + 1);
+  const pct = Math.round(score / maxScore * 100);
+  const color = pct >= 70 ? 'var(--green)' : pct >= 40 ? 'var(--amber)' : 'var(--coral)';
+  const grade = pct >= 70 ? 'Good work!' : pct >= 40 ? 'Partial credit — review the model answer.' : 'Keep working on this one.';
+  result.style.display = 'block';
+  result.innerHTML = `
+    <div style="font-weight:700;font-size:1.05rem;color:${color};">${pct}% — ${grade}</div>
+    <div class="sa-bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="Score: ${pct}%">
+      <div class="sa-bar-fill" style="width:${pct}%;background:${color};"></div>
+    </div>
+    <div class="sa-concepts" aria-label="Key concepts">${tags.map(t => `<span class="sa-tag ${t.hit ? 'hit' : 'miss'}" aria-label="${t.hit ? 'Found' : 'Missing'}: ${t.label}">${t.hit ? '✓' : '○'} ${t.label}</span>`).join('')}</div>
+    <details class="sa-model">
+      <summary aria-expanded="false">Show Model Answer</summary>
+      <div class="model-text">${q.model}</div>
+    </details>
+  `;
+}
+
+renderSA();
+</script>
+</body>
+</html>
