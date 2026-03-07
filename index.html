@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Statistics &amp; Biostatistics — Foundations: Closing the Gap</title>
-<meta name="description" content="A plain-language, three-level statistics and biostatistics study guide for college students and underprepared high school students. Includes worked examples, flashcards, and quizzes.">
+<meta name="description" content="A plain-language, three-level statistics and biostatistics study guide for college students. Includes worked examples, flashcards, and quizzes. Level 1 through Level 3 depth.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -88,19 +88,19 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--tex
 .level-body p:last-child{margin-bottom:0}
 .level-body.collapsed{display:none}
 
-/* Level 1 — 8th Grade */
+/* Level 1 */
 .level-block.l1{border:2px solid var(--level1-border)}
 .level-header.l1{background:var(--level1-bg);color:var(--level1-color)}
 .level-indicator.l1{background:var(--level1-border);color:#fff}
 .level-body.l1{background:#f5faf5}
 
-/* Level 2 — High School */
+/* Level 2 */
 .level-block.l2{border:2px solid var(--level2-border)}
 .level-header.l2{background:var(--level2-bg);color:var(--level2-color)}
 .level-indicator.l2{background:var(--level2-border);color:#fff}
 .level-body.l2{background:#f3f6fc}
 
-/* Level 3 — College */
+/* Level 3 */
 .level-block.l3{border:2px solid var(--level3-border)}
 .level-header.l3{background:var(--level3-bg);color:var(--level3-color)}
 .level-indicator.l3{background:var(--level3-border);color:#fff}
@@ -222,6 +222,12 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   .mc-opt.wrong{border:3px solid ButtonText}
 }
 
+/* ===== LEVEL FILTER BUTTONS ===== */
+.level-filter-btn{padding:.4rem 1rem;border:2px solid var(--border);border-radius:20px;background:var(--bg-card);cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:600;transition:all .15s;color:var(--text-muted)}
+.level-filter-btn:hover{border-color:var(--accent);background:var(--accent-light);color:var(--accent-dark)}
+.level-filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.level-filter-btn:focus-visible{outline:3px solid #d4b84a;outline-offset:2px}
+
 /* ===== PRINT ===== */
 @media print{
   .practice{display:none}
@@ -253,19 +259,33 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
 <!-- LEVEL KEY -->
 <section aria-labelledby="level-key-heading" class="level-key">
   <h2 id="level-key-heading">How to Use the Three Levels</h2>
-  <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:.75rem;">Every topic is broken into three reading levels. Start at Level 1 and go deeper as you get comfortable. Click any level bar to expand or collapse it.</p>
+  <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:.75rem;">Every topic is explained at three depth levels. Start at Level 1 — no background assumed. Expand deeper levels when you're ready. Click any level bar to open or close it.</p>
   <div class="level-key-grid">
     <div class="lk-item">
       <span class="lk-badge l1" aria-hidden="true">LEVEL 1</span>
-      <span class="lk-desc"><strong>8th Grade (Start Here)</strong> &mdash; The plain-English version. No assumed background. Big ideas only.</span>
+      <span class="lk-desc"><strong>Level 1 — Start Here</strong> &mdash; Plain-English explanation with no assumed background. Big ideas only. Every student should master this level first.</span>
     </div>
     <div class="lk-item">
       <span class="lk-badge l2" aria-hidden="true">LEVEL 2</span>
-      <span class="lk-desc"><strong>High School Junior/Senior</strong> &mdash; Adds vocabulary, formulas, and the "why." Good for A&amp;P or pre-calc students.</span>
+      <span class="lk-desc"><strong>Level 2 — Vocabulary &amp; Formulas</strong> &mdash; Adds precise definitions, the math behind the ideas, and the "why." Good for students building toward college-level science.</span>
     </div>
     <div class="lk-item">
       <span class="lk-badge l3" aria-hidden="true">LEVEL 3</span>
-      <span class="lk-desc"><strong>College Sophomore</strong> &mdash; Full technical depth. Assumptions, edge cases, MCAT-ready detail.</span>
+      <span class="lk-desc"><strong>Level 3 — Full Technical Depth</strong> &mdash; Assumptions, edge cases, and MCAT-ready detail. This is the level your professors use in lecture.</span>
+    </div>
+  </div>
+
+  <!-- LEVEL FILTER CONTROLS -->
+  <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border-light);">
+    <p style="font-size:.85rem;font-weight:700;color:var(--accent-dark);margin-bottom:.5rem;" id="filter-label">Quick filter — show only one level across all sections:</p>
+    <div role="group" aria-labelledby="filter-label" style="display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;">
+      <button class="level-filter-btn active" data-filter="all" aria-pressed="true">All Levels</button>
+      <button class="level-filter-btn" data-filter="l1" aria-pressed="false" style="border-color:var(--level1-border);color:var(--level1-color);">Level 1 Only</button>
+      <button class="level-filter-btn" data-filter="l2" aria-pressed="false" style="border-color:var(--level2-border);color:var(--level2-color);">Level 2 Only</button>
+      <button class="level-filter-btn" data-filter="l3" aria-pressed="false" style="border-color:var(--level3-border);color:var(--level3-color);">Level 3 Only</button>
+      <span style="margin-left:.5rem;color:var(--border);font-size:.85rem;" aria-hidden="true">|</span>
+      <button class="level-filter-btn" id="expand-all-btn" aria-label="Expand all level sections">Expand All</button>
+      <button class="level-filter-btn" id="collapse-all-btn" aria-label="Collapse all level sections">Collapse All</button>
     </div>
   </div>
 </section>
@@ -298,7 +318,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l1">
     <button class="level-header l1" aria-expanded="true" aria-controls="s1-l1-body" id="s1-l1-btn">
       <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
-      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-title">Level 1 — Start Here</span>
       <span class="level-chevron open" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l1" id="s1-l1-body" role="region" aria-labelledby="s1-l1-btn">
@@ -316,6 +336,19 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
         <p><strong>So what?</strong> The mean of 70 makes the class sound pretty average, but four out of five students actually scored below 70. The one high score (95) dragged the mean up. The median of 65 better represents how most students did.</p>
         <p><strong>Rule of thumb:</strong> Use the median when you have extreme outliers (like one very high or very low value).</p>
       </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Mode in Real Life</div>
+        <p><strong>A shoe store tracks sizes sold in one week:</strong> 7, 8, 8, 9, 9, 9, 9, 10, 10, 11</p>
+        <p><strong>Mode = 9</strong> (appears 4 times — more than any other size)</p>
+        <p><strong>Why it matters:</strong> The store manager does not need the average shoe size — averages do not come in boxes. The mode tells them which size to order the most of. Mode is the only measure of center that works for categories ("most popular color sold: blue").</p>
+      </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Range vs. Standard Deviation</div>
+        <p><strong>Two classes, same mean (75):</strong></p>
+        <p>Class A scores: 73, 74, 75, 76, 77 — Range = 4, SD ≈ 1.6 (very consistent)</p>
+        <p>Class B scores: 50, 60, 75, 90, 100 — Range = 50, SD ≈ 20 (very spread out)</p>
+        <p><strong>The mean of 75 is the same, but the experience of being in those classes is completely different.</strong> Standard deviation captures this. Class A students all cluster near 75. Class B has students who aced it and students who struggled. You always need a spread measure alongside the mean.</p>
+      </div>
     </div>
   </div>
 
@@ -323,7 +356,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l2">
     <button class="level-header l2" aria-expanded="false" aria-controls="s1-l2-body" id="s1-l2-btn">
       <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
-      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-title">Level 2 — Vocabulary &amp; Formulas</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l2 collapsed" id="s1-l2-body" role="region" aria-labelledby="s1-l2-btn">
@@ -357,7 +390,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l3">
     <button class="level-header l3" aria-expanded="false" aria-controls="s1-l3-body" id="s1-l3-btn">
       <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
-      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-title">Level 3 — Full Technical Depth</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l3 collapsed" id="s1-l3-body" role="region" aria-labelledby="s1-l3-btn">
@@ -384,7 +417,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l1">
     <button class="level-header l1" aria-expanded="true" aria-controls="s2-l1-body" id="s2-l1-btn">
       <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
-      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-title">Level 1 — Start Here</span>
       <span class="level-chevron open" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l1" id="s2-l1-body" role="region" aria-labelledby="s2-l1-btn">
@@ -403,7 +436,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l2">
     <button class="level-header l2" aria-expanded="false" aria-controls="s2-l2-body" id="s2-l2-btn">
       <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
-      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-title">Level 2 — Vocabulary &amp; Formulas</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l2 collapsed" id="s2-l2-body" role="region" aria-labelledby="s2-l2-btn">
@@ -418,13 +451,27 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
       </div>
       <h3>Conditional Probability</h3>
       <p><dfn>Conditional probability</dfn> P(A|B) = "probability of A given that B already happened." Formula: P(A|B) = P(A and B) / P(B).</p>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Conditional Probability in Medicine</div>
+        <p><strong>Scenario:</strong> Among 1,000 patients at a clinic, 200 smoke and 800 do not. Of the 200 smokers, 60 develop lung disease. Of the 800 non-smokers, 40 develop lung disease.</p>
+        <p>P(lung disease | smoker) = 60 / 200 = <strong>0.30</strong> (30%)</p>
+        <p>P(lung disease | non-smoker) = 40 / 800 = <strong>0.05</strong> (5%)</p>
+        <p><strong>Interpretation:</strong> Smokers are 6 times more likely to develop lung disease. This is the basic logic behind relative risk — conditional probability is how we compare disease rates between groups in epidemiology.</p>
+      </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Addition Rule (Overlapping Events)</div>
+        <p>In a class of 40 students: 18 study biology, 15 study chemistry, 8 study both.</p>
+        <p>P(bio OR chem) = P(bio) + P(chem) − P(both)</p>
+        <p>= 18/40 + 15/40 − 8/40 = <strong>25/40 = 0.625</strong></p>
+        <p><strong>Why subtract the overlap?</strong> Those 8 students who take both were counted once in "bio" and once in "chem." Subtract them once to correct for the double count.</p>
+      </div>
     </div>
   </div>
 
   <div class="level-block l3">
     <button class="level-header l3" aria-expanded="false" aria-controls="s2-l3-body" id="s2-l3-btn">
       <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
-      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-title">Level 3 — Full Technical Depth</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l3 collapsed" id="s2-l3-body" role="region" aria-labelledby="s2-l3-btn">
@@ -453,7 +500,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l1">
     <button class="level-header l1" aria-expanded="true" aria-controls="s3-l1-body" id="s3-l1-btn">
       <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
-      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-title">Level 1 — Start Here</span>
       <span class="level-chevron open" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l1" id="s3-l1-body" role="region" aria-labelledby="s3-l1-btn">
@@ -466,13 +513,17 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
         <div class="mnemonic-label" aria-hidden="true">The 68–95–99.7 Rule</div>
         <p>In any normal distribution: <strong>68%</strong> of data falls within 1 standard deviation of the mean. <strong>95%</strong> falls within 2 SD. <strong>99.7%</strong> falls within 3 SD. If a value is more than 2 SD away, it is unusual. More than 3 SD — it is rare.</p>
       </div>
-    </div>
-  </div>
-
-  <div class="level-block l2">
-    <button class="level-header l2" aria-expanded="false" aria-controls="s3-l2-body" id="s3-l2-btn">
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Using the 68–95–99.7 Rule</div>
+        <p>Exam scores in a large class are normally distributed: mean = 75, SD = 8.</p>
+        <p><strong>68% of students scored between:</strong> 75 − 8 = 67 and 75 + 8 = <strong>67 to 83</strong></p>
+        <p><strong>95% of students scored between:</strong> 75 − 16 = 59 and 75 + 16 = <strong>59 to 91</strong></p>
+        <p><strong>99.7% of students scored between:</strong> 75 − 24 = 51 and 75 + 24 = <strong>51 to 99</strong></p>
+        <p><strong>A student who scored 59</strong> is at exactly 2 SD below the mean — below 97.5% of the class. Unusual, but still within the expected range of scores.</p>
+        <p><strong>A student who scored 99</strong> is 3 SD above the mean — in the top 0.15% of the class. Genuinely exceptional.</p>
+      </div>
       <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
-      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-title">Level 2 — Vocabulary &amp; Formulas</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l2 collapsed" id="s3-l2-body" role="region" aria-labelledby="s3-l2-btn">
@@ -509,7 +560,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l3">
     <button class="level-header l3" aria-expanded="false" aria-controls="s3-l3-body" id="s3-l3-btn">
       <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
-      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-title">Level 3 — Full Technical Depth</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l3 collapsed" id="s3-l3-body" role="region" aria-labelledby="s3-l3-btn">
@@ -537,7 +588,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l1">
     <button class="level-header l1" aria-expanded="true" aria-controls="s4-l1-body" id="s4-l1-btn">
       <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
-      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-title">Level 1 — Start Here</span>
       <span class="level-chevron open" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l1" id="s4-l1-body" role="region" aria-labelledby="s4-l1-btn">
@@ -553,7 +604,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l2">
     <button class="level-header l2" aria-expanded="false" aria-controls="s4-l2-body" id="s4-l2-btn">
       <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
-      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-title">Level 2 — Vocabulary &amp; Formulas</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l2 collapsed" id="s4-l2-body" role="region" aria-labelledby="s4-l2-btn">
@@ -583,7 +634,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l3">
     <button class="level-header l3" aria-expanded="false" aria-controls="s4-l3-body" id="s4-l3-btn">
       <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
-      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-title">Level 3 — Full Technical Depth</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l3 collapsed" id="s4-l3-body" role="region" aria-labelledby="s4-l3-btn">
@@ -611,7 +662,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l1">
     <button class="level-header l1" aria-expanded="true" aria-controls="s5-l1-body" id="s5-l1-btn">
       <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
-      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-title">Level 1 — Start Here</span>
       <span class="level-chevron open" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l1" id="s5-l1-body" role="region" aria-labelledby="s5-l1-btn">
@@ -627,7 +678,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l2">
     <button class="level-header l2" aria-expanded="false" aria-controls="s5-l2-body" id="s5-l2-btn">
       <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
-      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-title">Level 2 — Vocabulary &amp; Formulas</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l2 collapsed" id="s5-l2-body" role="region" aria-labelledby="s5-l2-btn">
@@ -662,7 +713,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l3">
     <button class="level-header l3" aria-expanded="false" aria-controls="s5-l3-body" id="s5-l3-btn">
       <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
-      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-title">Level 3 — Full Technical Depth</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l3 collapsed" id="s5-l3-body" role="region" aria-labelledby="s5-l3-btn">
@@ -689,7 +740,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l1">
     <button class="level-header l1" aria-expanded="true" aria-controls="s6-l1-body" id="s6-l1-btn">
       <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
-      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-title">Level 1 — Start Here</span>
       <span class="level-chevron open" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l1" id="s6-l1-body" role="region" aria-labelledby="s6-l1-btn">
@@ -705,7 +756,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l2">
     <button class="level-header l2" aria-expanded="false" aria-controls="s6-l2-body" id="s6-l2-btn">
       <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
-      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-title">Level 2 — Vocabulary &amp; Formulas</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l2 collapsed" id="s6-l2-body" role="region" aria-labelledby="s6-l2-btn">
@@ -737,7 +788,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l3">
     <button class="level-header l3" aria-expanded="false" aria-controls="s6-l3-body" id="s6-l3-btn">
       <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
-      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-title">Level 3 — Full Technical Depth</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l3 collapsed" id="s6-l3-body" role="region" aria-labelledby="s6-l3-btn">
@@ -765,7 +816,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l1">
     <button class="level-header l1" aria-expanded="true" aria-controls="s7-l1-body" id="s7-l1-btn">
       <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
-      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-title">Level 1 — Start Here</span>
       <span class="level-chevron open" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l1" id="s7-l1-body" role="region" aria-labelledby="s7-l1-btn">
@@ -780,7 +831,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l2">
     <button class="level-header l2" aria-expanded="false" aria-controls="s7-l2-body" id="s7-l2-btn">
       <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
-      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-title">Level 2 — Vocabulary &amp; Formulas</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l2 collapsed" id="s7-l2-body" role="region" aria-labelledby="s7-l2-btn">
@@ -813,7 +864,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l3">
     <button class="level-header l3" aria-expanded="false" aria-controls="s7-l3-body" id="s7-l3-btn">
       <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
-      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-title">Level 3 — Full Technical Depth</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l3 collapsed" id="s7-l3-body" role="region" aria-labelledby="s7-l3-btn">
@@ -836,7 +887,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l1">
     <button class="level-header l1" aria-expanded="true" aria-controls="s8-l1-body" id="s8-l1-btn">
       <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
-      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-title">Level 1 — Start Here</span>
       <span class="level-chevron open" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l1" id="s8-l1-body" role="region" aria-labelledby="s8-l1-btn">
@@ -852,7 +903,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l2">
     <button class="level-header l2" aria-expanded="false" aria-controls="s8-l2-body" id="s8-l2-btn">
       <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
-      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-title">Level 2 — Vocabulary &amp; Formulas</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l2 collapsed" id="s8-l2-body" role="region" aria-labelledby="s8-l2-btn">
@@ -875,7 +926,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l3">
     <button class="level-header l3" aria-expanded="false" aria-controls="s8-l3-body" id="s8-l3-btn">
       <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
-      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-title">Level 3 — Full Technical Depth</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l3 collapsed" id="s8-l3-body" role="region" aria-labelledby="s8-l3-btn">
@@ -899,7 +950,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l1">
     <button class="level-header l1" aria-expanded="true" aria-controls="s9-l1-body" id="s9-l1-btn">
       <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
-      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-title">Level 1 — Start Here</span>
       <span class="level-chevron open" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l1" id="s9-l1-body" role="region" aria-labelledby="s9-l1-btn">
@@ -908,13 +959,19 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
         <div class="think-label" aria-hidden="true">Think of It This Way</div>
         <p>Regular (parametric) tests are like a fancy scale that gives exact readings — but it breaks down if you put something weird on it. Non-parametric tests are like a simple ranking system — less powerful, but they work even when the data is messy.</p>
       </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Ranks Replace Raw Numbers</div>
+        <p><strong>Five patients' pain scores (1–10 scale) before treatment:</strong> 3, 7, 9, 2, 8</p>
+        <p><strong>Step 1 — Rank them lowest to highest:</strong> 2→rank 1, 3→rank 2, 7→rank 3, 8→rank 4, 9→rank 5</p>
+        <p><strong>Why rank?</strong> We do not know if the gap between pain scores of 7 and 8 is the same as the gap between 2 and 3. By converting to ranks, we only claim that 8 is worse than 7, not how much worse. This makes the test valid even with a scale that may not be perfectly equal-interval.</p>
+      </div>
     </div>
   </div>
 
   <div class="level-block l2">
     <button class="level-header l2" aria-expanded="false" aria-controls="s9-l2-body" id="s9-l2-btn">
       <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
-      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-title">Level 2 — Vocabulary &amp; Formulas</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l2 collapsed" id="s9-l2-body" role="region" aria-labelledby="s9-l2-btn">
@@ -941,7 +998,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l3">
     <button class="level-header l3" aria-expanded="false" aria-controls="s9-l3-body" id="s9-l3-btn">
       <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
-      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-title">Level 3 — Full Technical Depth</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l3 collapsed" id="s9-l3-body" role="region" aria-labelledby="s9-l3-btn">
@@ -962,7 +1019,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l1">
     <button class="level-header l1" aria-expanded="true" aria-controls="s10-l1-body" id="s10-l1-btn">
       <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
-      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-title">Level 1 — Start Here</span>
       <span class="level-chevron open" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l1" id="s10-l1-body" role="region" aria-labelledby="s10-l1-btn">
@@ -971,13 +1028,19 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
         <div class="think-label" aria-hidden="true">The Gold Standard</div>
         <p>A <dfn>randomized controlled trial (RCT)</dfn> randomly assigns people to treatment or control groups. Because assignment is random, the groups are similar in every way except the treatment — so any difference in outcomes must be caused by the treatment. All other study designs can only show that two things happen together, not that one causes the other.</p>
       </div>
+      <div class="example-box">
+        <div class="example-label" aria-hidden="true">Worked Example — Observational vs. Experimental</div>
+        <p><strong>Observational study:</strong> Researchers notice that people who drink coffee have fewer cases of Parkinson's disease. They conclude coffee might be protective.</p>
+        <p><strong>Why they cannot say "coffee prevents Parkinson's":</strong> Coffee drinkers might also exercise more, smoke less, or differ in dozens of other ways. Any of those differences could explain the lower Parkinson's rate. This is a <dfn>confounding variable</dfn>.</p>
+        <p><strong>To prove causation:</strong> Randomly assign 10,000 people to "drink 2 cups coffee/day" vs. "no coffee" for 20 years. Compare Parkinson's rates. Now you know coffee is the only systematic difference. This is an RCT — expensive and difficult, but the only way to establish cause.</p>
+      </div>
     </div>
   </div>
 
   <div class="level-block l2">
     <button class="level-header l2" aria-expanded="false" aria-controls="s10-l2-body" id="s10-l2-btn">
       <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
-      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-title">Level 2 — Vocabulary &amp; Formulas</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l2 collapsed" id="s10-l2-body" role="region" aria-labelledby="s10-l2-btn">
@@ -1004,7 +1067,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l3">
     <button class="level-header l3" aria-expanded="false" aria-controls="s10-l3-body" id="s10-l3-btn">
       <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
-      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-title">Level 3 — Full Technical Depth</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l3 collapsed" id="s10-l3-body" role="region" aria-labelledby="s10-l3-btn">
@@ -1031,7 +1094,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l1">
     <button class="level-header l1" aria-expanded="true" aria-controls="s11-l1-body" id="s11-l1-btn">
       <span class="level-indicator l1" aria-hidden="true">LEVEL 1</span>
-      <span class="level-title">8th Grade — Start Here</span>
+      <span class="level-title">Level 1 — Start Here</span>
       <span class="level-chevron open" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l1" id="s11-l1-body" role="region" aria-labelledby="s11-l1-btn">
@@ -1047,7 +1110,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l2">
     <button class="level-header l2" aria-expanded="false" aria-controls="s11-l2-body" id="s11-l2-btn">
       <span class="level-indicator l2" aria-hidden="true">LEVEL 2</span>
-      <span class="level-title">High School — Vocabulary &amp; Formulas</span>
+      <span class="level-title">Level 2 — Vocabulary &amp; Formulas</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l2 collapsed" id="s11-l2-body" role="region" aria-labelledby="s11-l2-btn">
@@ -1089,7 +1152,7 @@ dfn{font-style:normal;font-weight:700;color:var(--accent-dark);border-bottom:1px
   <div class="level-block l3">
     <button class="level-header l3" aria-expanded="false" aria-controls="s11-l3-body" id="s11-l3-btn">
       <span class="level-indicator l3" aria-hidden="true">LEVEL 3</span>
-      <span class="level-title">College Level — Full Technical Depth</span>
+      <span class="level-title">Level 3 — Full Technical Depth</span>
       <span class="level-chevron" aria-hidden="true">▼</span>
     </button>
     <div class="level-body l3 collapsed" id="s11-l3-body" role="region" aria-labelledby="s11-l3-btn">
@@ -1525,6 +1588,60 @@ function gradeSA(qi) {
 }
 
 renderSA();
+
+/* ===================================================
+   LEVEL FILTER + EXPAND / COLLAPSE ALL
+=================================================== */
+function setLevelVisibility(filter) {
+  const allBlocks = document.querySelectorAll('.level-block');
+  allBlocks.forEach(block => {
+    if (filter === 'all') {
+      block.style.display = '';
+    } else {
+      block.style.display = block.classList.contains(filter) ? '' : 'none';
+    }
+  });
+  document.getElementById('live-region').textContent =
+    filter === 'all' ? 'Showing all levels.' : `Showing Level ${filter.replace('l','')} only.`;
+}
+
+document.querySelectorAll('.level-filter-btn[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.level-filter-btn[data-filter]').forEach(b => {
+      b.classList.remove('active'); b.setAttribute('aria-pressed','false');
+    });
+    btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
+    setLevelVisibility(btn.dataset.filter);
+  });
+});
+
+document.getElementById('expand-all-btn').addEventListener('click', () => {
+  document.querySelectorAll('.level-header').forEach(btn => {
+    const bodyId = btn.getAttribute('aria-controls');
+    const body = document.getElementById(bodyId);
+    if (body && body.classList.contains('collapsed')) {
+      body.classList.remove('collapsed');
+      btn.setAttribute('aria-expanded','true');
+      const chevron = btn.querySelector('.level-chevron');
+      if (chevron) chevron.classList.add('open');
+    }
+  });
+  document.getElementById('live-region').textContent = 'All sections expanded.';
+});
+
+document.getElementById('collapse-all-btn').addEventListener('click', () => {
+  document.querySelectorAll('.level-header').forEach(btn => {
+    const bodyId = btn.getAttribute('aria-controls');
+    const body = document.getElementById(bodyId);
+    if (body && !body.classList.contains('collapsed')) {
+      body.classList.add('collapsed');
+      btn.setAttribute('aria-expanded','false');
+      const chevron = btn.querySelector('.level-chevron');
+      if (chevron) chevron.classList.remove('open');
+    }
+  });
+  document.getElementById('live-region').textContent = 'All sections collapsed.';
+});
 </script>
 </body>
 </html>
